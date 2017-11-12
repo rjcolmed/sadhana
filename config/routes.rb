@@ -1,12 +1,18 @@
 # == Route Map
 #
-# You don't have any routes defined!
-# 
-# Please add some routes in config/routes.rb.
-# 
-# For more information about routes, see the Rails guide: http://guides.rubyonrails.org/routing.html.
+#      Prefix Verb URI Pattern             Controller#Action
+#        root GET  /                       welcome#index
+#    teachers POST /teachers(.:format)     teachers#create
+# new_teacher GET  /teachers/new(.:format) teachers#new
+#     teacher GET  /teachers/:id(.:format) teachers#show
+#    students POST /students(.:format)     students#create
+# new_student GET  /students/new(.:format) students#new
+#     student GET  /students/:id(.:format) students#show
 # 
 
 Rails.application.routes.draw do
   root 'welcome#index'
+
+  resources :teachers, only: %i[new create show]
+  resources :students, only: %i[new create show]
 end
