@@ -32,7 +32,7 @@ class LessonsController < ApplicationController
     @teacher = Teacher.find_by(id: params[:teacher_id])
   end
 
-  def lessons_params
+  def lesson_params
     params.require(:lesson).permit(:title, :description, :location, :teacher_id)
   end
 end
