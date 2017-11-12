@@ -19,5 +19,5 @@ Rails.application.routes.draw do
 
   resources :students, only: %i[new create show]
 
-  resources :lessons, only: %i[index]
+  resources :lessons, only: %i[index create]
 end
