@@ -14,7 +14,13 @@ class LessonsController < ApplicationController
   end
 
   def create
-    
+    lesson = Lesson.new(lesson_params)
+
+    if lesson.save
+      redirect_to teacher_lesson_path
+    else
+      render :new
+    end
   end
 
   def show
