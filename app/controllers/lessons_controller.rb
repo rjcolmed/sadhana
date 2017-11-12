@@ -1,5 +1,5 @@
 class LessonsController < ApplicationController
-  before_action :set_teacher, only: %i[new]
+  # before_action :set_teacher, only: %i[new create]
 
   def index
     if params[:user_id]
@@ -10,6 +10,7 @@ class LessonsController < ApplicationController
   end
 
   def new
+    @teacher = set_teacher
     @lesson = Lesson.new
   end
 
@@ -17,7 +18,7 @@ class LessonsController < ApplicationController
     lesson = Lesson.new(lesson_params)
 
     if lesson.save
-      redirect_to teacher_lesson_path
+      redirect_to teacher_lesson_path(lesson, lesson.teacher)
     else
       render :new
     end
