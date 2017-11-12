@@ -1,4 +1,6 @@
 class TeachersController < ApplicationController
+  before_action :set_teacher, only: %i[show]
+  
   def new
     @teacher = Teacher.new
   end
@@ -18,7 +20,11 @@ class TeachersController < ApplicationController
   def show
   end
 
-  private 
+  private
+
+  def set_teacher
+    @teacher = Teacher.find_by(id: params[:id])
+  end
 
   def teacher_params
     params.require(:teacher).permit(:first_name, :last_name, :username, :email, :password, :password_confirmation)
