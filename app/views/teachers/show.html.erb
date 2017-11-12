@@ -1,1 +1,5 @@
-<%= @teacher.first_name %>
+<%= @teacher.first_name %>'s Home
+
+<%#render teacher's lessons here %>
+
+<%= link_to 'New Lesson', new_teacher_lesson_path(@teacher) %>
