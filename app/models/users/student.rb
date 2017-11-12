@@ -14,5 +14,7 @@
 #
 
 class Student < User
-  has_many :lessons
+  has_many :student_lessons
+  has_many :lessons, through: :student_lessons
+  has_many :teachers, through: :lessons
 end
