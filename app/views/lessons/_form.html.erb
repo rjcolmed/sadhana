@@ -1,9 +1,10 @@
-<%= form_for @lesson do |f| %>
+<%= form_for @lesson, url: teacher_lessons_path(@teacher) do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
   <%= f.label :description %>
   <%= f.text_field :description %>
   <%= f.label :location %>
   <%= f.text_field :location %>
+  <%#add hidden field with teacher's id here %>
   <%= f.submit %>
 <% end %>
