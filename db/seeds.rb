@@ -5,49 +5,57 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-student1 = Student.create(
-  first_name: "Scully", 
+student1 = Student.create!(
+  first_name: "Scully",
+  username: "scully", 
   last_name: "Colon", 
   email: "scully@email.com",
   password: "111"
 )
 
-student2 = Student.create(
+student2 = Student.create!(
   first_name: "Ricardo", 
-  last_name: "Colon", 
+  last_name: "Colon",
+  username: "ricardo",
   email: "ricardo@email.com",
-  password: "111"
+  password: "111",
+  password_confirmation: "111"
 )
 
-teacher1 = Teacher.create(
+teacher1 = Teacher.create!(
   first_name: "Caroline", 
-  last_name: "McEneaney", 
+  last_name: "McEneaney",
+  username: "caro", 
   email: "caro@email.com",
-  password: "111"
+  password: "111",
+  password_confirmation: "111"
+  
 )
 
-teacher2 = Teacher.create(
+teacher2 = Teacher.create!(
   first_name: "Jomney", 
-  last_name: "Bimbert", 
+  last_name: "Bimbert",
+  username: "jomney",
   email: "jomney@email.com",
-  password: "111"
+  password: "111",
+  password_confirmation: "111"
 )
 
-lesson1 = Lesson.create(
+lesson1 = Lesson.create!(
   title: "Vinyasa for Beginners", 
   description: "This class is for beginners.",
   location: "123 Broadway",
   teacher_id: teacher1.id
 )
 
-lesson2 = Lesson.create(
+lesson2 = Lesson.create!(
   title: "Advanced Vinyasa", 
   description: "This class is for experienced practioners.",
   location: "8 2nd Ave.",
   teacher_id: teacher2.id
 )
 
-lesson3 = Lesson.create(
+lesson3 = Lesson.create!(
   title: "Sanskrit for Beginners", 
   description: "We'll learn the basics.",
   location: "123 Broadway",
