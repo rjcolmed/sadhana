@@ -13,5 +13,6 @@
 
 class Lesson < ApplicationRecord
   belongs_to :teacher
-  has_many :students
+  has_many :student_lessons
+  has_many :students, through: :student_lessons
 end
