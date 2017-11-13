@@ -1,12 +1,11 @@
 class LessonsController < ApplicationController
   before_action :set_teacher, only: %i[new] 
-  before_action :set_lesson, only: %i[show]
+  before_action :set_lesson, only: %i[show edit update]
 
 
   def index
     if params[:teacher_id]
-      teacher = set_teacher
-      @lessons = teacher.lessons
+      @lessons = set_teacher.lessons
     else
       @lessons = Lesson.all
     end
@@ -27,6 +26,12 @@ class LessonsController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
   end
 
   private
