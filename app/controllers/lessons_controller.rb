@@ -51,6 +51,10 @@ class LessonsController < ApplicationController
     @lesson = Lesson.find_by(id: params[:id])
   end
 
+  def set_teacher
+    @teacher = Teacher.find_by(id: params[:teacher_id])
+  end
+
   def lesson_params
     params.require(:lesson).permit(:title, :description, :location, :teacher_id, tag_ids: [], tags_attributes: [:name])
   end
