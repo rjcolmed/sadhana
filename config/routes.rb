@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     resources :lessons
   end
 
-  resources :students, only: %i[new create show]
+  resources :students, only: %i[new create show edit update]
 
   resources :lessons, only: %i[index create show update]
 end
