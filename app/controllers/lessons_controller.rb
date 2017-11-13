@@ -1,7 +1,5 @@
 class LessonsController < ApplicationController
-  before_action :set_teacher, only: %i[new edit] 
   before_action :set_lesson, only: %i[show edit update]
-
 
   def index
     if params[:teacher_id]
@@ -49,15 +47,11 @@ class LessonsController < ApplicationController
     @student = Student.find_by(id: params[:student_id])
   end
 
-  def set_teacher
-    @teacher = Teacher.find_by(id: params[:teacher_id])
-  end
-
   def set_lesson
     @lesson = Lesson.find_by(id: params[:id])
   end
 
   def lesson_params
-    params.require(:lesson).permit(:title, :description, :location, :teacher_id)
+    params.require(:lesson).permit(:title, :description, :location, :teacher_id, tag_ids: [], tags_attributes: [:name])
   end
 end
