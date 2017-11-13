@@ -1,5 +1,9 @@
 class TeachersController < ApplicationController
   before_action :set_teacher, only: %i[show]
+
+  def index
+    @teachers = Teacher.all
+  end
   
   def new
     @teacher = Teacher.new
