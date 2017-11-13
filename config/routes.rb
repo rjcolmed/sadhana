@@ -55,4 +55,6 @@ Rails.application.routes.draw do
   resources :lessons, only: %i[show] do
     post '/enrollment', to: 'enrollment#create', as: 'enrollment'
   end
+
+  resources :tags, only: %i[create]
 end
