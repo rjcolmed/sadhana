@@ -1,10 +1,19 @@
-<%= form_for @lesson do |f| %>
+
+<%= form_for(@lesson) do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
   <%= f.label :description %>
   <%= f.text_field :description %>
   <%= f.label :location %>
   <%= f.text_field :location %>
-  <%= f.hidden_field :teacher_id, value: @teacher.id %>
+  <%= f.hidden_field :teacher_id, value: current_user.id %>
+
+  <%= f.label 'Add existing tags:' %>
+  <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
+
+  <%= f.label 'And/or create a new tag:' %>
+  <%= f.fields_for :tags, @lesson.tags.build do |tags_fields| %>
+      <%= tags_fields.text_field :name %>
+  <% end %>
   <%= f.submit %>
 <% end %>
