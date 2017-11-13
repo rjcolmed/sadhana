@@ -17,4 +17,11 @@ class Lesson < ApplicationRecord
   has_many :students, through: :student_lessons
   has_many :lesson_tags
   has_many :tags, through: :lesson_tags
+
+  def tags_attributes=(tag_attributes)
+    tag_attributes.values.each do |tag_attribute|
+      tag = Tag.find_or_create_by(tag_attribute)
+      self.tags << tag
+    end
+  end
 end
