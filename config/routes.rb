@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :teachers, only: %i[new create show] do
-    resources :lessons, only: %i[index new create show]
+    resources :lessons
   end
 
   resources :students, only: %i[new create show]
