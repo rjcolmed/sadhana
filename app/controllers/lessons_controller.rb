@@ -19,7 +19,7 @@ class LessonsController < ApplicationController
     lesson = Lesson.new(lesson_params)
 
     if lesson.save
-      redirect_to teacher_lesson_path(lesson, lesson.teacher)
+      redirect_to teacher_lesson_path(lesson.teacher, lesson)
     else
       render :new
     end
