@@ -1,5 +1,7 @@
 class LessonsController < ApplicationController
-  # before_action :set_teacher, only: %i[new create]
+  before_action :set_teacher, only: %i[new] 
+  before_action :set_lesson, only: %i[show]
+
 
   def index
     if params[:user_id]
@@ -10,7 +12,6 @@ class LessonsController < ApplicationController
   end
 
   def new
-    @teacher = set_teacher
     @lesson = Lesson.new
   end
 
@@ -31,6 +32,10 @@ class LessonsController < ApplicationController
 
   def set_teacher
     @teacher = Teacher.find_by(id: params[:teacher_id])
+  end
+
+  def set_lesson
+    @lesson = Lesson.find_by(id: params[:id])
   end
 
   def lesson_params
