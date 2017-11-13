@@ -6,6 +6,14 @@ class StudentsController < ApplicationController
   end
 
   def create
+    @student = Student.new(student_params)
+
+    if @student.save
+      #add student's user_id to session hash here
+      redirect_to student_path(@student)
+    else
+      render :new
+    end
   end
 
   def show
