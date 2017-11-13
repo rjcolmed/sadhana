@@ -11,9 +11,26 @@ class StudentsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    @student.update(student_params)
+
+    if @student.valid?
+      redirect_to student_path(@student)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def set_student
     @student = Student.find_by(id: params[:id])
+  end
+
+  def student_params
+    params.require(:student).permit(:first_name, :last_name, :password, :password_confirmation, :email, :username)
   end
 end
