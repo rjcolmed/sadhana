@@ -1,1 +1,3 @@
 <%= @lesson.title %> || <%= @lesson.description %> || <%= @lesson.location %>
+
+<%= link_to 'Edit Lesson', edit_teacher_lesson_path(@lesson.teacher, @lesson) %>
