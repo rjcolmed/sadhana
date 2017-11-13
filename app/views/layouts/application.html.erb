@@ -9,6 +9,9 @@
   </head>
 
   <body>
+    <% if is_logged_in? %>
+      <%= current_user.full_name %> || <%= link_to 'Log_out', logout_path, method: :delete %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
