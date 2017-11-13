@@ -6,6 +6,6 @@
   <%= render partial: 'tags/tag', collection: @lesson.tags %>
 </ul>
 
-<%= link_to 'Edit Lesson', edit_teacher_lesson_path(@lesson.teacher, @lesson) if is_teacher? %>
+<%= link_to 'Edit Lesson', edit_teacher_lesson_path(@lesson.teacher, @lesson) if is_lesson_owner? %>
 
 <%= link_to 'Enroll', lesson_enrollment_path(@lesson), method: :post unless is_enrolled? || is_teacher? %>
