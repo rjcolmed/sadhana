@@ -32,6 +32,13 @@ class LessonsController < ApplicationController
   end
 
   def update
+    @lesson.update(lesson_params)
+
+    if @lesson.valid?
+      redirect_to teacher_lesson_path(@lesson.teacher, @lesson)
+    else
+      render :edit
+    end
   end
 
   private
