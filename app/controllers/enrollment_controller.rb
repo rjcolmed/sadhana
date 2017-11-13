@@ -6,6 +6,7 @@ class EnrollmentController < ApplicationController
 
       redirect_to lessons_path
     else
+      redirect_to student_path(current_user)
     end
   end
 end
