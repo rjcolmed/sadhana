@@ -1,19 +1,33 @@
 # == Route Map
 #
-#             Prefix Verb URI Pattern                                 Controller#Action
-#               root GET  /                                           welcome#index
-#    teacher_lessons GET  /teachers/:teacher_id/lessons(.:format)     lessons#index
-#                    POST /teachers/:teacher_id/lessons(.:format)     lessons#create
-# new_teacher_lesson GET  /teachers/:teacher_id/lessons/new(.:format) lessons#new
-#     teacher_lesson GET  /teachers/:teacher_id/lessons/:id(.:format) lessons#show
-#           teachers POST /teachers(.:format)                         teachers#create
-#        new_teacher GET  /teachers/new(.:format)                     teachers#new
-#            teacher GET  /teachers/:id(.:format)                     teachers#show
-#           students POST /students(.:format)                         students#create
-#        new_student GET  /students/new(.:format)                     students#new
-#            student GET  /students/:id(.:format)                     students#show
-#            lessons GET  /lessons(.:format)                          lessons#index
-#                    POST /lessons(.:format)                          lessons#create
+#              Prefix Verb   URI Pattern                                      Controller#Action
+#                root GET    /                                                welcome#index
+#               login GET    /login(.:format)                                 sessions#new
+#                     POST   /login(.:format)                                 sessions#create
+#              logout DELETE /logout(.:format)                                sessions#destroy
+#             session DELETE /sessions/:id(.:format)                          sessions#destroy
+#     teacher_lessons GET    /teachers/:teacher_id/lessons(.:format)          lessons#index
+#                     POST   /teachers/:teacher_id/lessons(.:format)          lessons#create
+#  new_teacher_lesson GET    /teachers/:teacher_id/lessons/new(.:format)      lessons#new
+# edit_teacher_lesson GET    /teachers/:teacher_id/lessons/:id/edit(.:format) lessons#edit
+#      teacher_lesson GET    /teachers/:teacher_id/lessons/:id(.:format)      lessons#show
+#                     PATCH  /teachers/:teacher_id/lessons/:id(.:format)      lessons#update
+#                     PUT    /teachers/:teacher_id/lessons/:id(.:format)      lessons#update
+#                     DELETE /teachers/:teacher_id/lessons/:id(.:format)      lessons#destroy
+#            teachers POST   /teachers(.:format)                              teachers#create
+#         new_teacher GET    /teachers/new(.:format)                          teachers#new
+#             teacher GET    /teachers/:id(.:format)                          teachers#show
+#            students POST   /students(.:format)                              students#create
+#         new_student GET    /students/new(.:format)                          students#new
+#        edit_student GET    /students/:id/edit(.:format)                     students#edit
+#             student GET    /students/:id(.:format)                          students#show
+#                     PATCH  /students/:id(.:format)                          students#update
+#                     PUT    /students/:id(.:format)                          students#update
+#             lessons GET    /lessons(.:format)                               lessons#index
+#                     POST   /lessons(.:format)                               lessons#create
+#              lesson GET    /lessons/:id(.:format)                           lessons#show
+#                     PATCH  /lessons/:id(.:format)                           lessons#update
+#                     PUT    /lessons/:id(.:format)                           lessons#update
 # 
 
 Rails.application.routes.draw do
