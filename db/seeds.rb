@@ -49,7 +49,7 @@ lesson1 = Lesson.create!(
 )
 
 lesson2 = Lesson.create!(
-  title: "Advanced Vinyasa", 
+  title: "Advanced Yin", 
   description: "This class is for experienced practioners.",
   location: "8 2nd Ave.",
   teacher_id: teacher2.id
@@ -61,4 +61,25 @@ lesson3 = Lesson.create!(
   location: "123 Broadway",
   teacher_id: teacher1.id
 )
+
+
+lesson4 = Lesson.create!(
+  title: "Yin Vinyasa I", 
+  description: "Please email teacher before signing up for class.",
+  location: "123 Broadway",
+  teacher_id: teacher2.id
+)
+
+tag1 = Tag.create!(name: "Vinyasa")
+tag2 = Tag.create!(name: "Sanskrit")
+tag3 = Tag.create!(name: "Yin")
+
+lesson1.tags << tag1
+lesson2.tags << tag3
+lesson3.tags << tag2
+lesson4.tags << tag1
+lesson4.tags << tag3
+
+
+
 
