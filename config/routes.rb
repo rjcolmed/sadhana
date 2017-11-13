@@ -46,4 +46,8 @@ Rails.application.routes.draw do
   resources :students, only: %i[new create show edit update]
 
   resources :lessons, only: %i[index create show update]
+
+  resources :lessons, only: %i[show] do
+    post '/enrollment', to: 'enrollment#create', as: 'enrollment'
+  end
 end
