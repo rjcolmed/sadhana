@@ -2,6 +2,9 @@
 
 <p>Description: <%= @lesson.description %></p>
 <p>Location: <%= @lesson.location %></p>
+<ul>
+  <%= render partial: 'tags/tag', collection: @lesson.tags %>
+</ul>
 
 <%= link_to 'Edit Lesson', edit_teacher_lesson_path(@lesson.teacher, @lesson) if is_teacher? %>
 
