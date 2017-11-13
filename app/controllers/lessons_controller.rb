@@ -4,8 +4,9 @@ class LessonsController < ApplicationController
 
 
   def index
-    if params[:user_id]
-      #add code to retrieve teacher's lessons here
+    if params[:teacher_id]
+      teacher = set_teacher
+      @lessons = teacher.lessons
     else
       @lessons = Lesson.all
     end
