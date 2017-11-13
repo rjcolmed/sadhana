@@ -1,5 +1,5 @@
 class LessonsController < ApplicationController
-  before_action :set_teacher, only: %i[new] 
+  before_action :set_teacher, only: %i[new edit] 
   before_action :set_lesson, only: %i[show edit update]
 
 
