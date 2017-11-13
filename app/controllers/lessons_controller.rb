@@ -6,6 +6,8 @@ class LessonsController < ApplicationController
   def index
     if params[:teacher_id]
       @lessons = set_teacher.lessons
+    elsif params[:student_id]
+      @lessons = set_student.lessons
     else
       @lessons = Lesson.all
     end
@@ -42,6 +44,10 @@ class LessonsController < ApplicationController
   end
 
   private
+
+  def set_student
+    @student = Student.find_by(id: params[:student_id])
+  end
 
   def set_teacher
     @teacher = Teacher.find_by(id: params[:teacher_id])
