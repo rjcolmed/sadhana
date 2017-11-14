@@ -45,21 +45,27 @@ lesson1 = Lesson.create!(
   title: "Vinyasa for Beginners", 
   description: "This class is for beginners.",
   location: "123 Broadway",
-  teacher_id: teacher1.id
+  teacher_id: teacher1.id,
+  date: Time.new(2017, 10, 01, 12, 0, 0),
+  time: Time.new(2017, 10, 01, 12, 0, 0)
 )
 
 lesson2 = Lesson.create!(
   title: "Advanced Yin", 
   description: "This class is for experienced practioners.",
   location: "8 2nd Ave.",
-  teacher_id: teacher2.id
+  teacher_id: teacher2.id,
+  date: Time.new(2017, 11, 20, 14, 30, 0),
+  time: Time.new(2017, 11, 20, 14, 30, 0)
 )
 
 lesson3 = Lesson.create!(
   title: "Sanskrit for Beginners", 
   description: "We'll learn the basics.",
   location: "123 Broadway",
-  teacher_id: teacher1.id
+  teacher_id: teacher1.id,
+  date: Time.new(2018, 01, 10, 17, 30, 0),
+  time: Time.new(2018, 01, 10, 17, 30, 0)
 )
 
 
@@ -67,7 +73,9 @@ lesson4 = Lesson.create!(
   title: "Yin Vinyasa I", 
   description: "Please email teacher before signing up for class.",
   location: "123 Broadway",
-  teacher_id: teacher2.id
+  teacher_id: teacher2.id,
+  date: Time.new(2017, 12, 15, 19, 35, 0),
+  time: Time.new(2017, 12, 15, 19, 35, 0)
 )
 
 tag1 = Tag.create!(name: "Vinyasa")
