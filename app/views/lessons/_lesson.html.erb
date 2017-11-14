@@ -1,5 +1,5 @@
 <li>
-  <strong><%= lesson.title %></strong><br>
+  <strong><%= link_to lesson.title, lesson_path(lesson) %></strong><br>
   <% if lesson.tags.any? %>
     Tags:
     <ul>
