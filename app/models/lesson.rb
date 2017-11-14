@@ -9,6 +9,8 @@
 #  teacher_id  :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  date        :datetime
+#  time        :datetime
 #
 
 class Lesson < ApplicationRecord
