@@ -2,7 +2,7 @@
 
 <p>Description: <%= @lesson.description %></p>
 <p>Location: <%= @lesson.location %></p>
-<p>When: <%= @lesson.date %></p>
+<p>When: <%= @lesson.when %></p>
 <ul>
   <%= render partial: 'tags/tag', collection: @lesson.tags %>
 </ul>
