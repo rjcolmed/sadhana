@@ -20,9 +20,8 @@
     </a>
     <div class="right menu">
         <% if is_logged_in? %>
-          <a class="ui item">
-            Hi, <%= current_user.first_name %>! 
-          </a>
+          <%= link_to "Hi, #{current_user.first_name}", student_path(current_user), class: "ui item" unless is_teacher? %>
+          <%= link_to "Hi, #{current_user.first_name}", teacher_path(current_user), class: "ui item" unless is_student? %>
           <%= link_to 'Log Out', logout_path, method: :delete, class: 'ui item' %>
         <% else %>
           <%= link_to 'Log In', login_path, class: 'ui item' %>
