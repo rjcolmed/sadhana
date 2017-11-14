@@ -28,5 +28,9 @@ class Lesson < ApplicationRecord
   def when
     date.strftime("%m-%d-%Y") + " at " + time.strftime("%l:%M%P")
   end
+
+  def enrolled_students
+    students.size
+  end
 end
 
