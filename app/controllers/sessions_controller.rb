@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
 
       is_teacher? ? (redirect_to teacher_path(@user)) : (redirect_to student_path(@user))
     else
+      render :new
     end
   end
 
