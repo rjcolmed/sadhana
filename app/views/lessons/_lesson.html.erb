@@ -1,13 +1,11 @@
-<li>
-  <strong><%= link_to lesson.title, lesson_path(lesson) %></strong><br>
+<div class="ui segment">
+  <strong><%= link_to lesson.title, lesson_path(lesson) %></strong>
+  <p><%= lesson.description %></p>
   <% if lesson.tags.any? %>
-    Tags:
     <ul>
       <% lesson.tags.each do |tag| %>
-        <li>
-          <%= tag.name %>
-        </li>
+        <%= link_to tag.name, tags_path, class: "ui teal circular label" %>
       <% end %>
     </ul>
   <% end %>
-</li>
+</div>
