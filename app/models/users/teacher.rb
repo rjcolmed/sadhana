@@ -18,4 +18,12 @@ class Teacher < User
   has_many :lessons
   has_many :student_lessons
   has_many :students, through: :student_lessons
+
+  def self.alphabetize
+    order(:first_name)
+  end
+
+  def self.reverse_alphabetize
+    alphabetize.reverse_order
+  end
 end
