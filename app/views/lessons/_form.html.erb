@@ -7,6 +7,11 @@
   </div>
 
   <div>
+    <%= f.label 'Add existing tags:' %>
+    <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
+  </div>
+
+  <div>
     <p><strong>Tags:</strong></p>
 
     <%= f.fields_for :tags do |tag| %>
