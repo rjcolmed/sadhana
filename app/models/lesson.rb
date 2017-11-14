@@ -17,6 +17,7 @@ class Lesson < ApplicationRecord
   has_many :students, through: :student_lessons
   has_many :lesson_tags
   has_many :tags, through: :lesson_tags
+  accepts_nested_attributes_for :tags, reject_if: :all_blank
 
   def tags_attributes=(tag_attributes)
     tag_attributes.values.each do |tag_attribute|
@@ -24,4 +25,6 @@ class Lesson < ApplicationRecord
       self.tags << tag
     end
   end
+
 end
+
