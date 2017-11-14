@@ -1,5 +1,5 @@
-<%= form_for @lesson do |f| %>
-  <%= render 'shared/errors', object: @lesson %>
+<%= form_for lesson do |f| %>
+  <%= render 'shared/errors', object: lesson %>
   <div>
     <%= f.label :title %>
     <%= f.text_field :title %>
@@ -7,13 +7,14 @@
   </div>
 
   <div>
-    <%= f.label 'Add existing tags:' %>
-    <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
-  </div>
-
-  <div>
     <p><strong>Tags:</strong></p>
 
+     <div>
+      <%= f.label 'Add tags:' %>
+      <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
+    </div>
+
+    <%= f.label 'Or create your own:' %>
     <%= f.fields_for :tags do |tag| %>
       <div>
         <%= tag.label :name %>
