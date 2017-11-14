@@ -50,12 +50,12 @@ Rails.application.routes.draw do
     resources :lessons, only: %i[index]
   end
 
-  resources :lessons, only: %i[index create show update]
+  resources :lessons, only: %i[index new create show update]
 
   resources :lessons, only: %i[show] do
     post '/enrollment', to: 'enrollment#create', as: 'enrollment'
     delete '/drop', to: 'enrollment#destroy', as: 'drop'
   end
 
-  resources :tags, only: %i[create]
+  resources :tags, only: %i[new create edit update]
 end
