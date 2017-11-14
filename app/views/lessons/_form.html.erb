@@ -3,6 +3,9 @@
   <div>
     <%= f.label :title %>
     <%= f.text_field :title %>
+    <%= f.text_area :description %>
+    <%= f.date_select :date %>
+    <%= f.time_select :time, {minute_step: 15, ampm: true} %>
     <%= f.hidden_field :teacher_id, value: current_user.id %>
   </div>
 
