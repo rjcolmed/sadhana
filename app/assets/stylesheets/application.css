@@ -18,3 +18,12 @@
   margin: auto;
   top: 150px;
 }
+
+.ui.stacked.segments.lessons {
+  max-width: 800px;
+  margin: auto;
+}
+
+.heading {
+  text-align: center;
+}
