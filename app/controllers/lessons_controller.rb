@@ -13,12 +13,13 @@ class LessonsController < ApplicationController
 
   def new
     @lesson = Lesson.new
+    @lesson.tags.build
   end
 
   def create
-    lesson = Lesson.new(lesson_params)
+    @lesson = Lesson.new(lesson_params)
 
-    if lesson.save
+    if @lesson.save
       redirect_to teacher_lesson_path(lesson.teacher, lesson)
     else
       render :new
