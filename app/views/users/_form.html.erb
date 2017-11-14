@@ -1,4 +1,4 @@
-<%= render partial: 'layouts/errors', locals: { model: user } %>
+<%= render partial: 'shared/errors', locals: { object: user } %>
 
 <%= form_for user do |f| %>
   <%= f.label :first_name %>
