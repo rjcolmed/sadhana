@@ -61,7 +61,9 @@ class LessonsController < ApplicationController
                             :title, 
                             :description, 
                             :location, 
-                            :teacher_id, 
+                            :teacher_id,
+                            :date,
+                            :time, 
                             tag_ids: [], 
                             tags_attributes: [:name]
                             )
