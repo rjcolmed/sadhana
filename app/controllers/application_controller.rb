@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user, :is_logged_in?, :is_teacher?, :is_lesson_owner?
+  helper_method :current_user, :is_logged_in?, :is_teacher?, :is_student?, :is_lesson_owner?
 
   private
 
@@ -13,7 +13,11 @@ class ApplicationController < ActionController::Base
   end
 
   def is_teacher?
-    current_user.type == 'Teacher'
+    current_user.type == 'Teacher' if current_user
+  end
+
+  def is_student?
+    current_user.type == 'Student' if current_user
   end
 
   def is_lesson_owner?
