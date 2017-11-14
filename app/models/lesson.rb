@@ -24,5 +24,9 @@ class Lesson < ApplicationRecord
       self.tags << tag unless tag.name.blank?
     end
   end
+
+  def when
+    date.strftime("%m-%d-%Y") + " at " + time.strftime("%l:%M%P")
+  end
 end
 
