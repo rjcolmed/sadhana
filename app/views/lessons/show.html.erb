@@ -1,10 +1,3 @@
-
-
-
-
-<%= link_to 'Drop Lesson', lesson_drop_path(@lesson), method: :delete, class: "ui fluid teal button" if is_enrolled? %>
-
-
 <div class="ui piled text container segment">
   <div> 
     <div class="ui header">
@@ -25,11 +18,11 @@
         <%= link_to 'Enroll', lesson_enrollment_path(@lesson), method: :post %>
       </div>
       <a class="ui teal left pointing label">
-        1,048 <%#Number of students goes here%>
+        <%= @lesson.enrolled_students %>
       </a>
     </div>
   <% end %>
 
-  
+  <%= link_to 'Drop Lesson', lesson_drop_path(@lesson), method: :delete, class: "ui red button" if is_enrolled? %>
   <%= link_to 'Edit Lesson', edit_teacher_lesson_path(@lesson.teacher, @lesson), class: "ui teal button" if is_lesson_owner? %>
 </div>
