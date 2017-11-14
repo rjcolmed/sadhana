@@ -1,4 +1,6 @@
-<%= form_for @lesson do |f| %>
+<%= render partial: 'layouts/errors', locals: { model: lesson }  %> 
+
+<%= form_for lesson do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
   <%= f.label :description %>
@@ -10,9 +12,9 @@
   <%= f.label 'Add existing tags:' %>
   <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
 
-   <%= f.label 'And/or create a new tag:' %>
-  <%= f.fields_for :tags, @lesson.tags.build do |tags_fields| %>
-      <%= tags_fields.text_field :name %>
+  <%= f.label 'And/or create a new tag:' %>
+  <%= f.fields_for :tags do |tags_fields| %>
+    <%= tags_fields.text_field :name %>
   <% end %>
   <%= f.submit %>
 <% end %>
