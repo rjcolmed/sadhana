@@ -1,11 +1,24 @@
-<div class="ui segment">
-  <h3><%= link_to lesson.title, lesson_path(lesson) %></h3>
-  <p><%= lesson.description %></p>
-  <% if lesson.tags.any? %>
-    <ul>
-      <% lesson.tags.each do |tag| %>
-        <%= link_to tag.name, tags_path, class: "ui teal circular label" %>
-      <% end %>
-    </ul>
-  <% end %>
+<div class="ui card">
+  <div class="content">
+    <div class="header"><%= link_to lesson.title, lesson_path(lesson) %></div>
+    <div class="meta">
+      <div><%= lesson.when %></div>
+      <div><%= lesson.location %></div>
+    </div>
+    <p><%= lesson.description %></p>
+  </div>
+    <% if lesson.tags.any? %>
+      <ul>
+        <% lesson.tags.each do |tag| %>
+          <%= link_to tag.name, tags_path, class: "ui top right attached teal label" %>
+        <% end %>
+      </ul>
+    <% end %>
+  <div class="extra content">
+    <a>
+      <i class="users icon"></i>
+      <%= lesson.enrolled_students %> students going
+    </a>
+  </div>
+  <%= link_to 'View Class', lesson_path(lesson), class: 'ui bottom attached button' %>
 </div>
