@@ -1,1 +1,13 @@
-<li><%= link_to  lesson.title , lesson_path(lesson) %> - Where: <%= lesson.location %></li>
+<li>
+  <strong><%= lesson.title %></strong><br>
+  <% if lesson.tags.any? %>
+    Tags:
+    <ul>
+      <% lesson.tags.each do |tag| %>
+        <li>
+          <%= tag.name %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</li>
