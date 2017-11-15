@@ -14,7 +14,8 @@
 #                     PATCH  /teachers/:teacher_id/lessons/:id(.:format)      lessons#update
 #                     PUT    /teachers/:teacher_id/lessons/:id(.:format)      lessons#update
 #                     DELETE /teachers/:teacher_id/lessons/:id(.:format)      lessons#destroy
-#            teachers POST   /teachers(.:format)                              teachers#create
+#            teachers GET    /teachers(.:format)                              teachers#index
+#                     POST   /teachers(.:format)                              teachers#create
 #         new_teacher GET    /teachers/new(.:format)                          teachers#new
 #             teacher GET    /teachers/:id(.:format)                          teachers#show
 #     student_lessons GET    /students/:student_id/lessons(.:format)          lessons#index
@@ -26,11 +27,16 @@
 #                     PUT    /students/:id(.:format)                          students#update
 #             lessons GET    /lessons(.:format)                               lessons#index
 #                     POST   /lessons(.:format)                               lessons#create
+#          new_lesson GET    /lessons/new(.:format)                           lessons#new
 #              lesson GET    /lessons/:id(.:format)                           lessons#show
 #                     PATCH  /lessons/:id(.:format)                           lessons#update
 #                     PUT    /lessons/:id(.:format)                           lessons#update
 #   lesson_enrollment POST   /lessons/:lesson_id/enrollment(.:format)         enrollment#create
+#         lesson_drop DELETE /lessons/:lesson_id/drop(.:format)               enrollment#destroy
 #                     GET    /lessons/:id(.:format)                           lessons#show
+#                tags GET    /tags(.:format)                                  tags#index
+#                     POST   /tags(.:format)                                  tags#create
+#             new_tag GET    /tags/new(.:format)                              tags#new
 # 
 
 Rails.application.routes.draw do
@@ -57,5 +63,5 @@ Rails.application.routes.draw do
     delete '/drop', to: 'enrollment#destroy', as: 'drop'
   end
 
-  resources :tags, only: %i[index new create edit update]
+  resources :tags, only: %i[new show create]
 end
