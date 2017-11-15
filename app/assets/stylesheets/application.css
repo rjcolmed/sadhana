@@ -81,3 +81,13 @@ h2.welcome-text {
 h2.welcome-text span {
   color: #00b5ad;
 }
+
+div.field div.field-with-errors {
+  color: red;
+}
+
+.ui.error.message {
+  max-width: 50%;
+  margin: auto;
+}
+
