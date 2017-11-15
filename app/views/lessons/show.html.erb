@@ -1,28 +1,28 @@
 <h1 class="heading"><%= @lesson.title %></h2>
 <div class="ui piled justified text container segment">
     <div class="ui horizontal divider">
-      <i class="tag icon"></i>
+      <i class="user icon"></i>
         Who
     </div>
     <img class="ui avatar image" src=<%= @lesson.teacher.image %>>
     <%= link_to @lesson.teacher.full_name, teacher_path(@lesson.teacher)  %>
      <div class="ui horizontal divider">
-      <i class="tag icon"></i>
+      <i class="align justify icon"></i>
         What
     </div>
     <p><%= @lesson.description %></p>
     <div class="ui horizontal divider">
-      <i class="tag icon"></i>
+      <i class="building icon"></i>
         Where
     </div>
       <p><%= @lesson.location %></p>
     <div class="ui horizontal divider">
-      <i class="tag icon"></i>
+      <i class="calendar icon"></i>
         When
     </div>
     <p><%= @lesson.when %></p>
      <div class="ui horizontal divider">
-      <i class="tag icon"></i>
+      <i class="tags icon"></i>
         Tags
     </div>
     <%= render partial: 'tags/tag', collection: @lesson.tags %>
