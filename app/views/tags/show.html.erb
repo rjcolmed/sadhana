@@ -1,0 +1,6 @@
+<div class="ui container">
+  <h1 class="heading"><%= @tag.name %></h1>
+  <div class="ui cards">
+    <%= render partial: 'lessons/lesson', collection: @tag.lessons %>
+  </div>
+</div>
