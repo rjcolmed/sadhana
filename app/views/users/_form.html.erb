@@ -1,20 +1,38 @@
 <%= render partial: 'shared/errors', locals: { object: user } %>
 
-<%= form_for user do |f| %>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  <%= f.label :password %>
-  <%= f.text_field :password %>
-  <%= f.label :password_confirmation %>
-  <%= f.text_field :password_confirmation %>
-  <%= f.submit %>
-<% end %>
+<div class="ui container">
+  <div class="ui raised segment login">
+    <div class="ui form">
+      <%= form_for user do |f| %>
+        <div class="field">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name %>
+        </div>
+        <div class="field">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name %>
+        </div>
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+        </div>
+        <div class="field">
+          <%= f.label :username %>
+          <%= f.text_field :username %>
+        </div>
+        <div class="field">
+          <%= f.label :password %>
+          <%= f.text_field :password %>
+        </div>
+        <div class="field">
+          <%= f.label :password_confirmation %>
+          <%= f.text_field :password_confirmation %>
+        </div>
+        <%= f.submit 'Submit', class: "ui fluid teal submit button" %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <%= link_to('Log in with Facebook!', '/auth/facebook') %>
 
