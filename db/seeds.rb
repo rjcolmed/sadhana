@@ -31,7 +31,8 @@ teacher1 = Teacher.create!(
   email: "caro@email.com",
   password: "111",
   password_confirmation: "111",
-  image: "https://semantic-ui.com/images/avatar2/large/molly.png"
+  image: "https://semantic-ui.com/images/avatar2/large/molly.png",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
   
 )
 
@@ -42,7 +43,8 @@ teacher2 = Teacher.create!(
   email: "jomney@email.com",
   password: "111",
   password_confirmation: "111",
-  image: "https://semantic-ui.com/images/avatar2/large/matthew.png"
+  image: "https://semantic-ui.com/images/avatar2/large/matthew.png",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
 )
 
 lesson1 = Lesson.create!(
