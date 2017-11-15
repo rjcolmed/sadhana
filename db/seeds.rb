@@ -10,7 +10,8 @@ student1 = Student.create!(
   username: "scully", 
   last_name: "Colon", 
   email: "scully@email.com",
-  password: "111"
+  password: "111",
+  image: "https://semantic-ui.com/images/avatar2/large/kristy.png"
 )
 
 student2 = Student.create!(
@@ -19,7 +20,8 @@ student2 = Student.create!(
   username: "ricardo",
   email: "ricardo@email.com",
   password: "111",
-  password_confirmation: "111"
+  password_confirmation: "111",
+  image: "https://semantic-ui.com/images/avatar2/large/elyse.png"
 )
 
 teacher1 = Teacher.create!(
@@ -28,7 +30,8 @@ teacher1 = Teacher.create!(
   username: "caro", 
   email: "caro@email.com",
   password: "111",
-  password_confirmation: "111"
+  password_confirmation: "111",
+  image: "https://semantic-ui.com/images/avatar2/large/molly.png"
   
 )
 
@@ -38,7 +41,8 @@ teacher2 = Teacher.create!(
   username: "jomney",
   email: "jomney@email.com",
   password: "111",
-  password_confirmation: "111"
+  password_confirmation: "111",
+  image: "https://semantic-ui.com/images/avatar2/large/matthew.png"
 )
 
 lesson1 = Lesson.create!(
