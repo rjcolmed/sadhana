@@ -2,7 +2,7 @@ class TeachersController < ApplicationController
   before_action :set_teacher, only: %i[show]
 
   def index
-    @teachers = Teacher.all
+    @teachers = Teacher.alphabetize
   end
   
   def new
