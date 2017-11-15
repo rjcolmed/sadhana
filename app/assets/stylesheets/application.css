@@ -16,7 +16,7 @@
 .ui.raised.segment.login {
   max-width: 450px;
   margin: auto;
-  top: 100px;
+  top: 50px;
 }
 
 .ui.stacked.segments.lessons {
@@ -38,6 +38,9 @@ div .ui.text.container {
 
 a .ui.huge.primary.button {
   margin: auto;
+}
+.ui.fluid.facebook.button {
+  margin: 10px;
 }
 
 
