@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171115002839) do
+ActiveRecord::Schema.define(version: 20171115013407) do
 
   create_table "lesson_tags", force: :cascade do |t|
     t.integer "lesson_id"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20171115002839) do
     t.string "type"
     t.string "password_confirmation"
     t.string "image"
+    t.string "uid"
   end
 
 end
