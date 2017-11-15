@@ -11,7 +11,7 @@
     <% if lesson.tags.any? %>
       <ul>
         <% lesson.tags.each do |tag| %>
-          <%= link_to tag.name, tags_path, class: "ui top right attached teal label" %>
+          <%= link_to tag.name, tag_path(tag), class: "ui top right attached teal label" %>
         <% end %>
       </ul>
     <% end %>
