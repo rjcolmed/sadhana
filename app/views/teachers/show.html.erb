@@ -1,12 +1,23 @@
-<h1><%= @teacher.first_name %></h1>
 
-<div class="ui segment">
-</div>
+<h1 class="heading"><%= @teacher.full_name %></h1>
+  <div class="ui justified text container"> 
+  
+    <div class="image show">
+      <img src=<%= @teacher.image %>>
+    </div>
+    <h2 class="header">About <%= @teacher.first_name %></h2>
+    <p>
+      <%= @teacher.bio %>
+    </p>
+      <% if owns_show_page? %>
+        <div class="two ui fluid buttons">
+          <%= link_to 'New Lesson', new_teacher_lesson_path(@teacher), class: 'ui big green button' %>
+          <%= link_to 'View Your Lessons', teacher_lessons_path(@teacher), class: 'ui big button' %>
+        </div>
+      <% end %>
+  </div>
 
 
 
-<% if is_teacher? %>
-  <%= link_to 'New Lesson', new_teacher_lesson_path(@teacher), class: 'ui big green button' %>
-  <%= link_to 'View Your Lessons', teacher_lessons_path(@teacher), class: 'ui big button' %>
-<% end %>
+
 
