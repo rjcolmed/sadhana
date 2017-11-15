@@ -28,7 +28,7 @@ class Lesson < ApplicationRecord
   end
 
   def when
-    date.strftime("%m-%d-%Y") + " at " + time.strftime("%l:%M%P")
+    date.strftime("%B %e, %Y") + " at " + time.strftime("%l:%M%P")
   end
 
   def enrolled_students
