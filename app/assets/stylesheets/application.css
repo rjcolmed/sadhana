@@ -18,6 +18,11 @@
   margin: auto;
   top: 50px;
 }
+.ui.raised.segment.form {
+  max-width: 700px;
+  margin: auto;
+  top: 50px;
+}
 
 .ui.stacked.segments.lessons {
   max-width: 800px;
@@ -40,11 +45,18 @@ a .ui.huge.primary.button {
   margin: auto;
 }
 .ui.fluid.facebook.button {
-  margin: 10px;
+  margin-top: 20px;
 }
 
 img {
   width: 100%;
 }
 
+.date-picker {
+  width: 200px;
+  margin: auto;
+}
 
+.ui.fluid.teal.button {
+  margin-top: 20px;
+}
