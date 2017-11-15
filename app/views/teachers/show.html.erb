@@ -1,7 +1,12 @@
-<h1><%= @teacher.first_name %>'s Home</h1>
+<h1><%= @teacher.first_name %></h1>
 
-<%#render teacher's lessons here %>
+<div class="ui segment">
+</div>
 
-<%= link_to 'New Lesson', new_teacher_lesson_path(@teacher) %>
-<%= link_to 'View Your Lessons', teacher_lessons_path(@teacher) %>
-<%= link_to 'See all lessons', lessons_path %>
+
+
+<% if is_teacher? %>
+  <%= link_to 'New Lesson', new_teacher_lesson_path(@teacher), class: 'ui big green button' %>
+  <%= link_to 'View Your Lessons', teacher_lessons_path(@teacher), class: 'ui big button' %>
+<% end %>
+
