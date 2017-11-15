@@ -1,10 +1,5 @@
 class UsersController < ApplicationController
   def new
-    @user = User.new
-
-    #if i find a user who matches the email fb returns in auth
-    # hash, skip the part below and go straight to user's show page
-
     if auth_hash = request.env['omniauth.auth']
       if @user = User.find_by_omniauth(auth_hash)
         session[:user_id] = @user.id
