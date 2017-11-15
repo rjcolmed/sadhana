@@ -1,8 +1,10 @@
 <div class="ui container welcome">
   <div class="ui text container">
     <h1 class="ui heading">Welcome to Sādhanā</h1>
-    <h2>Master the art of learning—one lesson at a time.</h2>
-    <%= link_to 'Sign up as Student', new_student_path, class: "ui huge primary button" %>
-    <%= link_to 'Sign up as Teacher', new_teacher_path, class: "ui huge primary button" %>
+    <h2 class="welcome-text">Master the art of <span>you</span>—one lesson at a time.</h2>
+    <div class="ui two fluid buttons">
+      <%= link_to 'Sign up as Student', new_student_path, class: "ui huge teal button" %>
+      <%= link_to 'Sign up as Teacher', new_teacher_path, class: "ui huge basic teal button" %>
+    </div>
   </div>
 </div>
