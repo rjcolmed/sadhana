@@ -30,3 +30,14 @@
   font-size: 4em;
 }
 
+div .ui.text.container {
+  max-width: 450px;
+  margin: auto;
+  top: 150px;
+}
+
+a .ui.huge.primary.button {
+  margin: auto;
+}
+
+
