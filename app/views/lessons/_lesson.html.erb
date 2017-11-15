@@ -1,21 +1,12 @@
 <div class="ui card">
   <div class="content">
-    <div class="header"><%= link_to lesson.title, lesson_path(lesson) %></div>
-    <div><%= lesson.location %></div>
-    <div class="content">
+      <div class="header"><%= link_to lesson.title, lesson_path(lesson) %></div>
+      <div class="ui horizontal divider"></div>
     <%#create scoped class method that tells user when the class is in days from now%>
       <img class="ui avatar image" src=<%= lesson.teacher.image %>> by
-       <%= link_to lesson.teacher.full_name, teacher_path(lesson.teacher)  %>
-    </div>
-     <div class="ui horizontal divider">
-      <i class="tag icon"></i>
-        What
-    </div>
-    <div class="content">
-      <p><%= lesson.description %></p>
-    </div>
+      <%= link_to lesson.teacher.full_name, teacher_path(lesson.teacher)  %>
   </div>
-  <div class="content">
+    <div class=content>
     <% if lesson.tags.any? %>
       <%= render partial: 'tags/tag', collection: lesson.tags %>
     <% end %>
@@ -26,5 +17,5 @@
       <%= lesson.enrolled_students %> students going
     </a>
   </div>
-  <%= link_to 'View Class', lesson_path(lesson), class: 'ui bottom attached button' %>
+  <%= link_to 'View Class', lesson_path(lesson), class: 'ui teal bottom attached button' %>
 </div>
