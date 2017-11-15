@@ -1,0 +1,18 @@
+<%= form_for user do |f| %>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+  <%= f.label :email %>
+  <%= f.text_field :email, value: @user.email %>
+  <%= f.radio_button(:type, "Teacher") %>
+  <%= f.label(:type_teacher, "I'm a teacher") %>
+  <%= f.radio_button(:type, "Student") %>
+  <%= f.label(:type_student, "I'm a student") %>
+  <%= f.hidden_field :password, value: @user.password %>
+  <%= f.hidden_field :password_confirmation, value: @user.password_confirmation %>
+  <%= f.hidden_field :image, value: @user.image %>
+  <%= f.hidden_field :uid, value: @user.uid %>
+  
+  <%= f.submit %>
+<% end %>
