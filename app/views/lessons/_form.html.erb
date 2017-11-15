@@ -1,30 +1,45 @@
-<%= form_for lesson do |f| %>
-  <%= render 'shared/errors', object: lesson %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= f.text_area :description %>
-    <%= f.date_select :date %>
-    <%= f.time_select :time, {minute_step: 15, ampm: true} %>
-    <%= f.hidden_field :teacher_id, value: current_user.id %>
-  </div>
-
-  <div>
-    <p><strong>Tags:</strong></p>
-
-     <div>
-      <%= f.label 'Add tags:' %>
-      <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
-    </div>
-
-    <%= f.label 'Or create your own:' %>
-    <%= f.fields_for :tags do |tag| %>
-      <div>
-        <%= tag.label :name %>
-        <%= tag.text_field :name %>
+<div class="ui raised segment form">
+  <div class="ui form">
+    <%= form_for lesson do |f| %>
+      <%= render 'shared/errors', object: lesson %>
+        <div class="field">
+          <h4 class="ui horizontal divider">
+          <i class="align left icon"></i>
+          Give it a Title
+          </h4>
+          <%= f.text_field :title %>
+        </div>
+         <h4 class="ui horizontal divider">
+           <i class="align left icon"></i>
+             A description
+           </h4>
+        <%= f.text_area :description %>
+        <div class="ui horizontal divider">
+          <i class="checked calendar icon"></i>
+            A date and time
+        </div>
+        <div class="date-picker">
+          <%= f.date_select :date %>
+          <%= f.time_select :time, {minute_step: 15, ampm: true} %>
+          <%= f.hidden_field :teacher_id, value: current_user.id %>
+        </div>
+        <h4 class="ui horizontal divider">
+          <i class="tag icon"></i>
+            Add Tags
+        </h4>
+        <div class="ui checkbox">
+          <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
+        </div>
+      <div class="ui horizontal divider">
+        <i class="tag icon"></i>
+          Or Create Your Own
       </div>
+      <%= f.fields_for :tags do |tag| %>
+            <%= tag.label :name %>
+            <%= tag.text_field :name %>
+      <% end %>
+
+      <%= f.submit 'Submit', class: 'ui fluid teal button' %>
     <% end %>
   </div>
-
-  <%= f.submit %>
-<% end %>
+</div>
