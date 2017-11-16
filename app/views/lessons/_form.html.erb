@@ -14,7 +14,7 @@
            <i class="align left icon"></i>
              A description
            </h4>
-        <%= f.text_area :description %>
+        <%= f.text_area :description, placeholder: 'Describe your class...' %>
         <h4 class="ui horizontal divider">
            <i class="building icon"></i>
              A place
@@ -33,16 +33,15 @@
           <i class="tag icon"></i>
             Add Tags
         </h4>
-        <div class="ui checkbox">
+        <div class="">
           <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
         </div>
       <div class="ui horizontal divider">
         <i class="tag icon"></i>
           Or Create Your Own
       </div>
-      <%= f.fields_for :tags do |tag| %>
-            <%= tag.label :name %>
-            <%= tag.text_field :name %>
+      <%= f.fields_for :tags, lesson.tags.build do |tags_fields| %>
+            <%= tags_fields.text_field :name, placeholder: 'Name your tag!' %>
       <% end %>
 
       <%= f.submit 'Submit', class: 'ui fluid teal button' %>
