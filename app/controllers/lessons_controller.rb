@@ -13,7 +13,6 @@ class LessonsController < ApplicationController
 
   def new
     @lesson = Lesson.new
-    @lesson.tags.build
   end
 
   def create
