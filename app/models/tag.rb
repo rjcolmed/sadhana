@@ -13,4 +13,8 @@ class Tag < ApplicationRecord
   has_many :lessons, through: :lesson_tags
 
   validates :name, presence: true
+
+  def self.most_popular
+    joins(:lessons).order('COUNT(tags.id) DESC').group('tags.id').limit(1)
+  end
 end
