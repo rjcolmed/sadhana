@@ -65,7 +65,12 @@ Rails.application.routes.draw do
     delete '/drop', to: 'enrollment#destroy', as: 'drop'
   end
 
-  resources :tags, only: %i[new show create]
+  resources :tags, only: %i[index new show create]
 
   resources :users, only: %i[new show create]
+
+  get '/tags/most_popular', to: 'tags#index'
+    
 end
+
+
