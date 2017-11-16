@@ -1,5 +1,6 @@
 class TagsController < ApplicationController
   def index
+    @tag = Tag.most_popular
   end
 
   def show
