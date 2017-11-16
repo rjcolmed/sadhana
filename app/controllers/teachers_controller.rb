@@ -1,5 +1,5 @@
 class TeachersController < ApplicationController
-  before_action :set_teacher, only: %i[show]
+  before_action :set_teacher, only: %i[show edit update]
 
   def index
     @teachers = Teacher.alphabetize
