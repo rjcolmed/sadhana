@@ -1,5 +1,9 @@
 <h1 class="heading">Log in!</h1>
 
+<% if flash[:notice] %>
+  <div class="ui error message"><%= flash[:notice] %></div>
+<% end %>
+
 <div class="ui container">
   <div class="ui raised segment login">
     <div class="ui big form">
