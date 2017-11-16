@@ -7,7 +7,7 @@ Specs:
 - [x] Include at least one has_many through relationship (x has_many y through z e.g. Recipe has_many Items through Ingredients) => e.g. A tag has many lessons though lesson_tags. 
 - [x] The "through" part of the has_many through includes at least one user submittable attribute (attribute_name e.g. ingredients.quantity) => Teachers may create tags when they create/edit lessons
 - [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item) => e.g. a Lesson can't be created without a title
-- [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+- [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes) => implemented with Tag.most_popular. viewable at tags/most_popular
 - [x] Include a nested form writing to an associated model using a custom attribute writer (form URL, model name e.g. /recipe/new, Item) => e.g. teachers/3/lessons/new, Tag
 - [x] Include signup (how e.g. Devise) => I implemented my own
 - [x] Include login (how e.g. Devise) => I implemented my own
