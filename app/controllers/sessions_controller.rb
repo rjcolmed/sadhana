@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
 
       is_teacher? ? (redirect_to teacher_path(@user)) : (redirect_to student_path(@user))
     else
+      flash[:notice] = 'Please make sure you entered the correct login info!'
       render :new
     end
   end
