@@ -1,7 +1,8 @@
+
+<%= render partial: 'shared/errors', locals: { object: lesson } %>
 <div class="ui raised segment form">
   <div class="ui form">
     <%= form_for lesson do |f| %>
-      <%= render 'shared/errors', object: lesson %>
         <div class="field">
           <h4 class="ui horizontal divider">
           <i class="align left icon"></i>
