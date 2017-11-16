@@ -20,7 +20,7 @@ class Lesson < ApplicationRecord
   has_many :lesson_tags
   has_many :tags, through: :lesson_tags
 
-  validates :title, presence: true, length: { in: 10...25 }
+  validates :title, presence: true, length: { in: 10...100 }
   validates :description, presence: true, length: { maximum: 1500 }
   validates :location, presence: true
   validates :date, 
