@@ -15,6 +15,6 @@ class Tag < ApplicationRecord
   validates :name, presence: true
 
   def self.most_popular
-    joins(:lessons).order('COUNT(tags.id) DESC').group('tags.id').limit(1)
+    joins(:lessons).order('COUNT(tags.id) DESC').group('tags.id').limit(1).first
   end
 end
