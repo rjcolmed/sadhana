@@ -23,4 +23,8 @@ module ApplicationHelper
   def owns_show_page?
     current_user == @teacher || current_user == @student
   end
+
+  def check_if_logged_in
+    (redirect_to login_path) unless is_logged_in?
+  end
 end

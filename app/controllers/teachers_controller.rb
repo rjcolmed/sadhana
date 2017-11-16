@@ -1,5 +1,6 @@
 class TeachersController < ApplicationController
   before_action :set_teacher, only: %i[show edit update]
+  before_action :check_if_logged_in, only: %i[create edit update]
 
   def index
     @teachers = Teacher.alphabetize
