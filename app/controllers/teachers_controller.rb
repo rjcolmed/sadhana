@@ -28,6 +28,13 @@ class TeachersController < ApplicationController
   end
 
   def update
+    @student.update(student_params)
+
+    if @student.valid?
+      redirect_to student_path(@student)
+    else
+      render :edit
+    end
   end
 
   private
