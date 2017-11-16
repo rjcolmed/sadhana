@@ -20,6 +20,14 @@ class Lesson < ApplicationRecord
   has_many :lesson_tags
   has_many :tags, through: :lesson_tags
 
+  validates :title, presence: true, length: { in: 10...25 }
+  validates :description, presence: true, length: { maximum: 500 }
+  validates :location, presence: true
+  validates :date, 
+            date: { after: Proc.new { Time.now + 1.day }, 
+                    before: Proc.new {Time.now + 1.year } }
+  validates :time, presence: true
+
   def tags_attributes=(tag_attributes)
     tag_attributes.values.each do |tag_attribute|
       tag = Tag.find_or_create_by(tag_attribute)
