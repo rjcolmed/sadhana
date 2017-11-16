@@ -21,6 +21,6 @@ module ApplicationHelper
   end
 
   def owns_show_page?
-    current_user == @teacher
+    current_user == @teacher || current_user == @student
   end
 end
