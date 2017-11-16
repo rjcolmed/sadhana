@@ -50,11 +50,11 @@ Rails.application.routes.draw do
 
   resources :sessions, only: %i[destroy]
 
-  resources :teachers, only: %i[index new create show] do
+  resources :teachers do
     resources :lessons
   end
 
-  resources :students, only: %i[new create show edit update] do
+  resources :students do
     resources :lessons, only: %i[index]
   end
 
