@@ -1,2 +1,8 @@
-this is tags index
-<%#ultimately, on this page will appear a list of classes that have the tag that was clicked on%>
+<div class="ui container">
+  <h1 class="heading">Our Most Popular Tag is '<%= @tag.name %>'!</h1>
+  <div class="ui cards">
+    <%= render partial: 'lessons/lesson', collection: @tag.lessons %>
+  </div>
+</div>
+
+
