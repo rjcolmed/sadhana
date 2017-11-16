@@ -1,18 +1,54 @@
-<%= form_for user do |f| %>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
-  <%= f.label :email %>
-  <%= f.text_field :email, value: @user.email %>
-  <%= f.radio_button(:type, "Teacher") %>
-  <%= f.label(:type_teacher, "I'm a teacher") %>
-  <%= f.radio_button(:type, "Student") %>
-  <%= f.label(:type_student, "I'm a student") %>
-  <%= f.hidden_field :password, value: @user.password %>
-  <%= f.hidden_field :password_confirmation, value: @user.password_confirmation %>
-  <%= f.hidden_field :image, value: @user.image %>
-  <%= f.hidden_field :uid, value: @user.uid %>
-  
-  <%= f.submit %>
-<% end %>
+<h1 class="heading">Just a Little Extra Info...</h1>
+
+<div class="ui center aligned text container">
+  Please fill out the info below so we can enable one-click logging in via Facebook!
+</div>
+
+<%= render partial: 'shared/errors', locals: { object: user } %>
+
+<div class="ui container">
+  <div class="ui raised segment login">
+    <div class="ui form">
+      <%= form_for user do |f| %>
+        <div class="field">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name %>
+        </div>
+        <div class="field">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name %>
+        </div>
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.text_field :email, value: @user.email  %>
+        </div>
+        <div class="inline fields">
+            <div class="field">
+              <div class="ui radio checkbox">
+                <%= f.radio_button(:type, "Teacher") %>
+                <%= f.label(:type_teacher, "I'm a teacher") %>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <%= f.radio_button(:type, "Student") %>
+              <%= f.label(:type_student, "I'm a student") %>
+            </div>
+          </div>
+        </div>
+        <%= f.hidden_field :password, value: @user.password %>
+        <%= f.hidden_field :password_confirmation, value: @user.password_confirmation %>
+        <%= f.hidden_field :image, value: @user.image %>
+        <%= f.hidden_field :uid, value: @user.uid %>
+        
+        <%= f.submit 'Submit', class: "ui fluid teal submit button" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
