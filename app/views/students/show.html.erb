@@ -1,5 +1,18 @@
-<h1><%= @student.full_name %>'s Home</h1>
-
-<%= link_to 'View Your Lessons', student_lessons_path(@student) %>
-<%= link_to 'View All Lessons', lessons_path %>
+<h1 class="heading"><%= @student.full_name %></h1>
+  <div class="ui justified text container"> 
+  
+    <div class="image show">
+      <img src=<%= @student.image %>>
+    </div>
+    <h2 class="header">About <%= @student.first_name %></h2>
+    <p>
+      <%= @student.bio %>
+    </p>
+      <% if owns_show_page? %>
+        <div class="two ui fluid buttons">
+          <%= link_to 'Edit Youf Info', edit_student_path(@student), class: 'ui big green button' %>
+          <%= link_to 'View Your Lessons', student_lessons_path(@student), class: 'ui big button' %>
+        </div>
+      <% end %>
+  </div>
 
