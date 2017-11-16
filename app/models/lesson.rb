@@ -21,7 +21,7 @@ class Lesson < ApplicationRecord
   has_many :tags, through: :lesson_tags
 
   validates :title, presence: true, length: { in: 10...25 }
-  validates :description, presence: true, length: { maximum: 500 }
+  validates :description, presence: true, length: { maximum: 1500 }
   validates :location, presence: true
   validates :date, 
             date: { after: Proc.new { Time.now + 1.day }, 
