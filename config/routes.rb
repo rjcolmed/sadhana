@@ -64,13 +64,12 @@ Rails.application.routes.draw do
     post '/enrollment', to: 'enrollment#create', as: 'enrollment'
     delete '/drop', to: 'enrollment#destroy', as: 'drop'
   end
+  
+  get '/tags/most_popular', to: 'tags#index'
 
   resources :tags, only: %i[index new show create]
 
   resources :users, only: %i[new show create]
-
-  get '/tags/most_popular', to: 'tags#index'
-    
 end
 
 
