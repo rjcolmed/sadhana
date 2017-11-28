@@ -27,4 +27,8 @@ module ApplicationHelper
   def check_if_logged_in
     (redirect_to login_path) unless is_logged_in?
   end
+
+  def redirect_check
+    is_teacher? ? (redirect_to teacher_path(@user)) : (redirect_to student_path(@user))
+  end
 end
