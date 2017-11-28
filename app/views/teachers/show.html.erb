@@ -12,7 +12,7 @@
       <% if is_logged_in? && owns_show_page? %>
         <div class="three ui fluid buttons">
           <%= link_to 'New Lesson', new_teacher_lesson_path(@teacher), class: 'ui big green button' %>
-          <%= link_to 'View Your Lessons', teacher_lessons_path(@teacher), class: 'ui big button' %>
+          <%= link_to 'View Your Lessons', teacher_lessons_path(@teacher), class: 'ui big blue button' %>
           <%= link_to 'Edit Your Info', edit_teacher_path(@teacher), class: 'ui big button' %>
         </div>
       <% end %>
