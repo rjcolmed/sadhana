@@ -29,10 +29,10 @@ class TeachersController < ApplicationController
   end
 
   def update
-    @student.update(student_params)
+    @teacher.update(teacher_params)
 
-    if @student.valid?
-      redirect_to student_path(@student)
+    if @teacher.valid?
+      redirect_to teacher_path(@teacher)
     else
       render :edit
     end
