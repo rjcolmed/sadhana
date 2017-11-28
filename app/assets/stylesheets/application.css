@@ -91,3 +91,7 @@ div.field div.field-with-errors {
   margin: auto;
 }
 
+div.ui.teal.tag.label {
+  margin-bottom: 20px;
+}
+
