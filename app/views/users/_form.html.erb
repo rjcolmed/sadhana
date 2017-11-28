@@ -20,6 +20,10 @@
           <%= f.label :username %>
           <%= f.text_field :username %>
         </div>
+        <div class="field">
+          <%= f.label :bio %>
+          <%= f.text_area :bio, placeholder: 'Tell us a little about yourself. You can always add more later.' %>
+        </div>
 
         <% unless is_logged_in? %>
           <div class="field">

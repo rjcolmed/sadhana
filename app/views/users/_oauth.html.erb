@@ -22,6 +22,10 @@
           <%= f.label :email %>
           <%= f.text_field :email, value: @user.email  %>
         </div>
+        <div class="field">
+          <%= f.label :bio %>
+          <%= f.text_area :bio, placeholder: 'Tell us a little about yourself. You can always add more later.' %>
+        </div>
         <div class="inline fields">
             <div class="field">
               <div class="ui radio checkbox">
