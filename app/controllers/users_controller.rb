@@ -34,7 +34,8 @@ class UsersController < ApplicationController
       :password, 
       :password_confirmation,
       :image,
-      :uid
+      :uid,
+      :bio
     )
   end
 end
