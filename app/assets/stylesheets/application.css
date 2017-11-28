@@ -43,6 +43,7 @@ div .ui.text.container {
   max-width: 450px;
   margin: auto;
   top: 200px;
+  position: relative;
 }
 
 a .ui.huge.primary.button {
