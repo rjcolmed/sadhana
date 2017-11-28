@@ -4,7 +4,7 @@ class UsersController < ApplicationController
       if @user = User.find_by_omniauth(auth_hash)
         session[:user_id] = @user.id
         
-        is_teacher? ? (redirect_to teacher_path(@user)) : (redirect_to student_path(@user))
+        redirect_check
       else
         @user = User.create_by_omniauth(auth_hash)
       end
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       
-      is_teacher? ? (redirect_to teacher_path(@user)) : (redirect_to student_path(@user))
+      redirect_check
     else
       render :new
     end
