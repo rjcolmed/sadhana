@@ -12,6 +12,9 @@
 #  updated_at            :datetime         not null
 #  type                  :string
 #  password_confirmation :string
+#  image                 :string
+#  uid                   :string
+#  bio                   :text
 #
 
 require 'test_helper'
