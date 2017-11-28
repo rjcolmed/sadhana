@@ -7,7 +7,6 @@ class UsersController < ApplicationController
         is_teacher? ? (redirect_to teacher_path(@user)) : (redirect_to student_path(@user))
       else
         @user = User.create_by_omniauth(auth_hash)
-       
       end
     end
   end
