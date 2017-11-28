@@ -1,24 +1,25 @@
-# README
+#README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#Sadhana
 
-Things you may want to cover:
+##Description
 
-* Ruby version
+Sadhana is a simple web application connecting people offering dharmic-related lessons to those who are interested in learning. Lessons can be about anything dharmic, including Yoga, yogic philosophy, Sanskrit, Buddhism, Hinduism, meditation, and more.
 
-* System dependencies
+##Usage
 
-* Configuration
+To use this app, first clone and run bundle install. Then, in your console, run rake db:migrate, rake db:seed, and rails server to run the server.
 
-* Database creation
+##Contributors Guide
 
-* Database initialization
+Contributors are very welcome. See below for a few suggestions on how to contribute.
 
-* How to run the test suite
+#Submit a Pull Request
 
-* Services (job queues, cache servers, search engines, etc.)
+If you see an opportunity for improvement and can make the change yourself go ahead and use a typical git workflow to make it happen:
 
-* Deployment instructions
+Fork this repository, make the changes on your fork, add descriptive commits, open a pull Request against this repo, and I'll review your change or comment on it right away.
 
-* ...
+##License
+
+See LICENSE for the project license.
