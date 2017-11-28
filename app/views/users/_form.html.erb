@@ -4,6 +4,10 @@
   <div class="ui raised segment login">
     <div class="ui form">
       <%= form_for user do |f| %>
+       <% unless is_logged_in? %>
+          <%= link_to 'Sign up with Facebook!', '/auth/facebook', class: "ui fluid facebook button" %>
+           <div class="ui horizontal divider">Or</div>
+        <% end %>
         <div class="field">
           <%= f.label :first_name %>
           <%= f.text_field :first_name %>
@@ -37,9 +41,6 @@
         <% end %>
         
         <%= f.submit 'Submit', class: "ui fluid teal submit button" %>
-        <% unless is_logged_in? %>
-          <%= link_to 'Sign up with Facebook!', '/auth/facebook', class: "ui fluid facebook button" %>
-        <% end %>
       <% end %>
     </div>
       
