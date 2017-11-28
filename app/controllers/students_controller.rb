@@ -9,7 +9,8 @@ class StudentsController < ApplicationController
     @student = Student.new(student_params)
 
     if @student.save
-      #add student's user_id to session hash here
+      session[:user_id] = @student.id
+      
       redirect_to student_path(@student)
     else
       render :new
