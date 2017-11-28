@@ -22,4 +22,4 @@ Fork this repository, make the changes on your fork, add descriptive commits, op
 
 ## License
 
-See LICENSE for the project license.
+See [LICENSE](https://github.com/rjcolmed/sadhana/blob/master/LICENSE) for the project license.
