@@ -1,6 +1,6 @@
 class TeachersController < ApplicationController
   before_action :set_teacher, only: %i[show edit update]
-  before_action :check_if_logged_in, only: %i[create edit update]
+  before_action :check_if_logged_in, only: %i[edit update]
 
   def index
     @teachers = Teacher.alphabetize
@@ -45,6 +45,6 @@ class TeachersController < ApplicationController
   end
 
   def teacher_params
-    params.require(:teacher).permit(:first_name, :last_name, :username, :email, :password, :password_confirmation)
+    params.require(:teacher).permit(:first_name, :last_name, :username, :email, :password, :password_confirmation, :bio)
   end
 end
