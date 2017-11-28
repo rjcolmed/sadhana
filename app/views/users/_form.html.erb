@@ -20,16 +20,22 @@
           <%= f.label :username %>
           <%= f.text_field :username %>
         </div>
-        <div class="field">
-          <%= f.label :password %>
-          <%= f.text_field :password %>
-        </div>
-        <div class="field">
-          <%= f.label :password_confirmation %>
-          <%= f.text_field :password_confirmation %>
-        </div>
+
+        <% unless is_logged_in? %>
+          <div class="field">
+            <%= f.label :password %>
+            <%= f.text_field :password %>
+          </div>
+          <div class="field">
+            <%= f.label :password_confirmation %>
+            <%= f.text_field :password_confirmation %>
+          </div>
+        <% end %>
+        
         <%= f.submit 'Submit', class: "ui fluid teal submit button" %>
-        <%= link_to 'Sign up with Facebook!', '/auth/facebook', class: "ui fluid facebook button" %>
+        <% unless is_logged_in? %>
+          <%= link_to 'Sign up with Facebook!', '/auth/facebook', class: "ui fluid facebook button" %>
+        <% end %>
       <% end %>
     </div>
       
