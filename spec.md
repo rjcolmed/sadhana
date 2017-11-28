@@ -3,7 +3,7 @@
 Specs:
 - [x] Using Ruby on Rails for the project
 - [x] Include at least one has_many relationship (x has_many y e.g. User has_many Recipes) => e.g. A teacher has many lessons
-- [ ] Include at least one belongs_to relationship (x belongs_to y e.g. Post belongs_to User) => e.g. A lesson belongs to a teacher
+- [x] Include at least one belongs_to relationship (x belongs_to y e.g. Post belongs_to User) => e.g. A lesson belongs to a teacher
 - [x] Include at least one has_many through relationship (x has_many y through z e.g. Recipe has_many Items through Ingredients) => e.g. A tag has many lessons though lesson_tags. 
 - [x] The "through" part of the has_many through includes at least one user submittable attribute (attribute_name e.g. ingredients.quantity) => Teachers may create tags when they create/edit lessons
 - [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item) => e.g. a Lesson can't be created without a title
