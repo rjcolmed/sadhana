@@ -17,6 +17,7 @@
     <% end %>
     <%= link_to 'All Lessons', lessons_path, class: 'item' %>
     <%= link_to 'Teachers', teachers_path, class: 'item' %>
+    <%= link_to 'Most Popular', tags_most_popular_path, class: 'item' %>
     <div class="right menu">
         <% if is_logged_in? %>
           <%= link_to 'Create Lesson', new_teacher_lesson_path(current_user), class: "ui item" if is_teacher? %>
