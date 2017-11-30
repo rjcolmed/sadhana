@@ -52,7 +52,13 @@
   <div>
     <%= link_to 'Edit Lesson', edit_teacher_lesson_path(@lesson.teacher, @lesson), class: "ui teal button" if is_lesson_owner? %>
   </div>
-  
-
 
 </div>
+
+<% if @comments %>
+  <ul>
+    <% @comments.each do |comment| %>
+      <li><%= comment.body %> by <%= comment.student.username %></li>
+    <% end %>
+  </ul>
+<% end %>
