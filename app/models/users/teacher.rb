@@ -19,8 +19,8 @@
 
 class Teacher < User
   has_many :lessons
-  has_many :student_lessons
-  has_many :students, through: :student_lessons
+  has_many :enrollments
+  has_many :students, through: :enrollments
 
   def self.alphabetize
     order(:first_name)
