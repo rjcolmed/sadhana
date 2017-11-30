@@ -16,10 +16,6 @@ module ApplicationHelper
     current_user.type == 'Student' if current_user
   end
 
-  def is_lesson_owner?
-    current_user == @lesson.teacher
-  end
-
   def owns_show_page?
     current_user == @teacher || current_user == @student
   end
