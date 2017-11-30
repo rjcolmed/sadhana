@@ -4,8 +4,9 @@ class EnrollmentController < ApplicationController
 
   def create
     if params[:lesson_id]
-      @lesson.students << @student
-
+      enrollment = @lesson.enrollments.create(student: @student)
+      comment = Comment.new(body: comment_params[:body], student: enrollment.student, enrollment: enrollment, lesson: enrollment.lesson)
+      comment.save
       redirect_to student_lessons_path(@student)
     else
       redirect_to student_path(@student)
@@ -26,5 +27,9 @@ class EnrollmentController < ApplicationController
 
   def set_student
     @student = Student.find_by(id: current_user.id)
+  end
+
+  def comment_params
+    params.require(:comment).permit(:body, :student_id)
   end
 end
