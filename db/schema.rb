@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171130185428) do
+ActiveRecord::Schema.define(version: 20171130203357) do
 
   create_table "comment_lessons", force: :cascade do |t|
     t.integer "lesson_id"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20171130185428) do
     t.text "body"
     t.integer "student_id"
     t.integer "lesson_id"
+    t.integer "enrollment_id"
   end
 
   create_table "enrollments", force: :cascade do |t|
