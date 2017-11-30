@@ -52,8 +52,8 @@ lesson1 = Lesson.create!(
   description: "This class is for beginners.",
   location: "123 Broadway",
   teacher_id: teacher1.id,
-  date: Time.new(2017, 12, 01, 12, 0, 0),
-  time: Time.new(2017, 12, 01, 12, 0, 0)
+  date: Time.new(2017, 12, 06, 12, 0, 0),
+  time: Time.new(2017, 12, 06, 12, 0, 0)
 )
 
 lesson2 = Lesson.create!(
@@ -61,8 +61,8 @@ lesson2 = Lesson.create!(
   description: "This class is for experienced practioners.",
   location: "8 2nd Ave.",
   teacher_id: teacher2.id,
-  date: Time.new(2017, 11, 20, 14, 30, 0),
-  time: Time.new(2017, 11, 20, 14, 30, 0)
+  date: Time.new(2018, 11, 20, 14, 30, 0),
+  time: Time.new(2018, 11, 20, 14, 30, 0)
 )
 
 lesson3 = Lesson.create!(
