@@ -5,7 +5,12 @@ class EnrollmentController < ApplicationController
   def create
     if params[:lesson_id]
       enrollment = @lesson.enrollments.create(student: @student)
-      comment = Comment.new(body: comment_params[:body], student: enrollment.student, enrollment: enrollment, lesson: enrollment.lesson)
+      comment = Comment.new(
+        body: comment_params[:body], 
+        student: enrollment.student, 
+        enrollment: enrollment, 
+        lesson: enrollment.lesson
+      )
       comment.save
       redirect_to student_lessons_path(@student)
     else
