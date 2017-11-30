@@ -19,6 +19,7 @@ class Lesson < ApplicationRecord
   has_many :students, through: :enrollments
   has_many :lesson_tags
   has_many :tags, through: :lesson_tags
+  has_many :comments, through: :enrollments
 
   validates :title, presence: true, length: { in: 10...100 }
   validates :description, presence: true, length: { maximum: 1500 }
