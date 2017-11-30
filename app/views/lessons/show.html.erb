@@ -36,12 +36,14 @@
       </div>
       <p>We ask that you send your teacher a question, comment, or request pertaining to the lesson's subject matter so they can better tailor its contents and structure to enrolled students' preferences.</p>
       <p><strong>Note:</strong> Fulfillment of your request is completely up to the teacher's discretion.</p>
-      <%= form_for @comment, url: lesson_enrollment_path(@lesson) do |f| %>
-        <%= f.text_area :body, class: "ui field", placeholder: "" %>
-        <div class="ui labeled button">
-          <%= f.submit 'Enroll', class: "ui teal button" %>
-        <div>
-      <% end %>
+      <div class="ui form">
+        <%= form_for @comment, url: lesson_enrollment_path(@lesson) do |f| %>
+        <div class="field">
+          <%= f.text_area :body, rows: "5", class: "ui field"%>
+        </div>
+          <%= f.submit 'Enroll', class: "ui fluid teal button" %>
+        <% end %>
+      <div>
     <% else %>
         <%= link_to 'Drop Lesson', lesson_drop_path(@lesson), method: :delete if is_enrolled? %>
     <% end %>
