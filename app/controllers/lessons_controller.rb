@@ -27,6 +27,7 @@ class LessonsController < ApplicationController
 
   def show
     @comment = Comment.new
+    @comments = @lesson.comments
   end
 
   def edit
