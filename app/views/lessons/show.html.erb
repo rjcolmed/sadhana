@@ -53,25 +53,27 @@
 <% if is_lesson_owner? %>
 <div class="ui comments">
   <h3 class="ui dividing header">Comments</h3>
-</div>
-
-  <% if @comments %>
+   <% if @comments %>
     <ul>
       <% @comments.each do |comment| %>
         <div class="comment">
           <a class="avatar">
-            <img src="/images/avatar/small/elliot.jpg">
+            <img src="<%= comment.student.image %>">
           </a>
           <div class="content">
             <a class="author"><%= comment.student.username %></a>
+            <div class="text"><%= comment.body %></div>
           </div>
-          <div class="text"><%= comment.body %></div>
+          
         </div>
       <% end %>
     </ul>
     <% else %>
       <p>You don't have any messages yet.</p>
   <% end %>
+</div>
+
+ 
 
   <div>
     <%= link_to 'Edit Lesson', edit_teacher_lesson_path(@lesson.teacher, @lesson), class: "ui teal button" if is_lesson_owner? %>
