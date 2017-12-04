@@ -33,15 +33,20 @@ function setListeners() {
       $('#lessonDescription').text(lesson.description);
       $('#lessonLocation').text(lesson.location);
       $('#lessonTime').text(lesson.time);
+      $('#lessonTeacherImage').attr('src', lesson.teacher.image);
+      let lessonTeacherHTML = `<a href="/teachers/${lesson.teacher.id}">${lesson.teacher.first_name} ${lesson.teacher.last_name}</a>`
+      $('#lessonTeacherName').html(lessonTeacherHTML);
 
       let lessonTagsHTML = '';
       for(let i = 0; i < lesson.tags.length; i++) {
         lessonTagsHTML += `<div class="ui teal tag label"><a href="/tags/${lesson.tags[i].id}">${lesson.tags[i].name}</a></div>`
-        console.log(lessonTagsHTML);
       }
       $('#lessonTags').html(lessonTagsHTML);
+
+      $(".js-next").attr('data-id', lesson.id);
     });
 
+    
   });
 
 }
