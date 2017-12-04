@@ -12,7 +12,7 @@ function setListeners() {
 
     $.get(`/teachers/${id}/lessons.json`, (lessons) => {
       for(let i = 0; i < lessons.length; i++) {
-        lessonsHTML += `<li>${lessons[i].title}</li>`
+        lessonsHTML += `<li><a href="/lessons/${lessons[i].id}">${lessons[i].title}</a></li>`
         console.log(lessonsHTML);
       }
 
