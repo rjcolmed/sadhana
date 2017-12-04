@@ -4,7 +4,7 @@
       <i class="user icon"></i>
         Who
     </div>
-    <img class="ui avatar image" src=<%= @lesson.teacher.image %>>
+  <img id="lessonTeacher" class="ui avatar image" src=<%= @lesson.teacher.image %>>
     <%= link_to @lesson.teacher.full_name, teacher_path(@lesson.teacher)  %>
      <div class="ui horizontal divider">
       <i class="align justify icon"></i>
@@ -25,7 +25,9 @@
       <i class="tags icon"></i>
         Tags
     </div>
-    <%= render partial: 'tags/tag', collection: @lesson.tags %>
+    <div id="lessonTags">
+      <%= render partial: 'tags/tag', collection: @lesson.tags %>
+    </div>
   <div>
 
   <% if is_logged_in? %>
