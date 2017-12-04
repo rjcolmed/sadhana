@@ -10,10 +10,11 @@
       <%= @teacher.bio %>
     </p>
       <% if is_logged_in? && owns_show_page? %>
-        <div class="three ui buttons">
+        <div class="four ui buttons">
           <%= link_to 'New Lesson', new_teacher_lesson_path(@teacher), class: 'ui button' %>
           <%= link_to 'View Your Lessons', teacher_lessons_path(@teacher), class: 'ui button js-lessons', data: { id: @teacher.id } %>
           <%= link_to 'Edit Your Info', edit_teacher_path(@teacher), class: 'ui button' %>
+          <%= link_to 'See Student Reviews', reviews_path , class: 'ui button js-reviews', data: { id: @teacher.id } %>
         </div>
         
         <div class="ui list" id="lessonInfo">
@@ -32,9 +33,8 @@
           <% end %>
         <div>
       <% end %>
-      <h3 class="ui dividing header">Reviews</h3>
       <div class="ui comments">
-        <%= render @reviews %>
+        <%# Student reviews rendered here via AJAX %>
       </div>
   </div>
 
