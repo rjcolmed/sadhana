@@ -8,16 +8,14 @@ function setListeners() {
     event.preventDefault();
 
     let id = $('.js-lessons').attr('data-id');
-    let lessonsHTML = '<ul>'
+    let lessonsHTML = '<h3 class="ui dividing header">Your Lessons</h3><ul>'
 
     $.get(`/teachers/${id}/lessons.json`, (lessons) => {
       for(let i = 0; i < lessons.length; i++) {
-        lessonsHTML += `<li><a href="/lessons/${lessons[i].id}">${lessons[i].title}</a></li>`
+        lessonsHTML += `<div class="item"><div class="content"><a class="header" href="/lessons/${lessons[i].id}">${lessons[i].title}</a><div class="description">When: ${lessons[i].time} at ${lessons[i].location}</div></div></div>`
       }
 
       lessonsHTML += '</ul>'
-
-      console.log(lessonsHTML);
       $('#lessonInfo').html(lessonsHTML);
     });
   });
