@@ -10,10 +10,10 @@
       <%= @teacher.bio %>
     </p>
       <% if is_logged_in? && owns_show_page? %>
-        <div class="three ui fluid buttons">
-          <%= link_to 'New Lesson', new_teacher_lesson_path(@teacher), class: 'ui big green button' %>
-          <%= link_to 'View Your Lessons', teacher_lessons_path(@teacher), class: 'ui big blue button', data: { id: @teacher.id } %>
-          <%= link_to 'Edit Your Info', edit_teacher_path(@teacher), class: 'ui big button' %>
+        <div class="three ui buttons">
+          <%= link_to 'New Lesson', new_teacher_lesson_path(@teacher), class: 'ui button' %>
+          <%= link_to 'View Your Lessons', teacher_lessons_path(@teacher), class: 'ui button js-lessons', data: { id: @teacher.id } %>
+          <%= link_to 'Edit Your Info', edit_teacher_path(@teacher), class: 'ui button' %>
         </div>
         <div id="lessonInfo"></div>
       <% end %>
@@ -36,7 +36,8 @@
   </div>
 
 
-<a href="#" class="js-lessons" data-id="<%= @teacher.id %>">Lessons</a>
+
+
 
 
 
