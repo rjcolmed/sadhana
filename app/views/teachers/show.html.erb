@@ -15,8 +15,12 @@
           <%= link_to 'View Your Lessons', teacher_lessons_path(@teacher), class: 'ui big blue button', data: { id: @teacher.id } %>
           <%= link_to 'Edit Your Info', edit_teacher_path(@teacher), class: 'ui big button' %>
         </div>
+        <div id="lessonInfo"></div>
       <% end %>
+
+      
   </div>
+
 
 <a href="#" class="js-lessons" data-id="<%= @teacher.id %>">Lessons</a>
 
