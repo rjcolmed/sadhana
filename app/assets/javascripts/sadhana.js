@@ -45,9 +45,13 @@ function setListeners() {
 
       $(".js-next").attr('data-id', lesson.id);
     });
-
-    
   });
+
+  $('#reviewForm').submit(function(event) {
+    event.preventDefault();
+
+    alert('heyyyy');
+  }); 
 
 }
 
