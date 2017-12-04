@@ -53,7 +53,22 @@ function setListeners() {
     let serializedReview = $(this).serialize();
 
     $.post('/reviews', serializedReview, function(review) {
-      
+      let teacherReviewHTML = `
+      <div class="comment">
+      <a class="avatar">
+        <img src="${review.student.image}">
+      </a>
+      <div class="content">
+        <a class="author">${review.student.first_name} ${review.student.last_name}</a>
+        <div class="metadata">
+          <span class="date">${review.created_at}</span>
+        </div>
+        <div class="text">
+          ${review.body}
+        </div>
+      </div>
+    </div>`
+      $('.ui.comments').append(teacherReviewHTML);
     });
   }); 
 
