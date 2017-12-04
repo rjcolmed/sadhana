@@ -12,7 +12,7 @@ function setListeners() {
 
     $.get(`/teachers/${id}/lessons.json`, (lessons) => {
       for(let i = 0; i < lessons.length; i++) {
-        lessonsHTML += `<div class="item"><div class="content"><a class="header" href="/lessons/${lessons[i].id}">${lessons[i].title}</a><div class="description">When: ${lessons[i].time} at ${lessons[i].location}</div></div></div>`
+        lessonsHTML += `<div class="item"><div class="content"><i class="users icon"></i><a class="header" href="/lessons/${lessons[i].id}">${lessons[i].title}</a><div class="description">When: ${lessons[i].time} at ${lessons[i].location}</div></div></div>`
       }
 
       lessonsHTML += '</ul>'
@@ -27,21 +27,30 @@ function setListeners() {
     let nextLessonId = parseInt($('.js-next').attr('data-id')) + 1;
 
     $.get(`/lessons/${nextLessonId}.json`, lesson => {
+
       $('#lessonTitle').text(lesson.title);
       $('#lessonDescription').text(lesson.description);
       $('#lessonLocation').text(lesson.location);
       $('#lessonTime').text(lesson.time);
       $('#lessonTeacherImage').attr('src', lesson.teacher.image);
-      let lessonTeacherHTML = `<a href="/teachers/${lesson.teacher.id}">${lesson.teacher.first_name} ${lesson.teacher.last_name}</a>`
-      $('#lessonTeacherName').html(lessonTeacherHTML);
+
+      let lessonTeacherNameHTML = `<a href="/teachers/${lesson.teacher.id}">
+                                ${lesson.teacher.first_name} ${lesson.teacher.last_name}
+                              </a>`
+      $('#lessonTeacherName').html(lessonTeacherNameHTML);
 
       let lessonTagsHTML = '';
       for(let i = 0; i < lesson.tags.length; i++) {
-        lessonTagsHTML += `<div class="ui teal tag label"><a href="/tags/${lesson.tags[i].id}">${lesson.tags[i].name}</a></div>`
+        lessonTagsHTML += `<div class="ui teal tag label"><a href="/tags/${lesson.tags[i].id}">
+                            ${lesson.tags[i].name}</a>
+                          </div>`
       }
       $('#lessonTags').html(lessonTagsHTML);
-
+      
       $(".js-next").attr('data-id', lesson.id);
+      
+  
+
     });
   });
 
@@ -98,11 +107,8 @@ function setListeners() {
       }
 
       $('.ui.comments').html(teacherReviewsHTML);
-
     }); 
-   
   });
-
 }
 
 
