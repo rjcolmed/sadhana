@@ -9,6 +9,11 @@ class LessonsController < ApplicationController
     else
       @lessons = Lesson.all
     end
+
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @lessons }
+    end
   end
 
   def new
