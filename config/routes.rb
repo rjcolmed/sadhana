@@ -51,6 +51,7 @@ Rails.application.routes.draw do
 
   resources :teachers do
     resources :lessons
+    resources :reviews, only: %i[index]
   end
 
   resources :students do
