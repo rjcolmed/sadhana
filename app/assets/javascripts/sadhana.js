@@ -16,7 +16,7 @@ function setListeners() {
       }
 
       lessonsHTML += '</ul>'
-      $('#lessonInfo').html(lessonsHTML);
+      $('.ui.comments').html(lessonsHTML);
     });
   });
 
