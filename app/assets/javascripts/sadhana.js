@@ -50,7 +50,11 @@ function setListeners() {
   $('#reviewForm').submit(function(event) {
     event.preventDefault();
 
-    alert('heyyyy');
+    let serializedReview = $(this).serialize();
+
+    $.post('/reviews', serializedReview, function(review) {
+      
+    });
   }); 
 
 }
