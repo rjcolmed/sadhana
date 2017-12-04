@@ -69,6 +69,8 @@ Rails.application.routes.draw do
   resources :tags, only: %i[index new show create]
 
   resources :users, only: %i[new show create]
+
+  resources :reviews, only: %i[new show create]
 end
 
 
