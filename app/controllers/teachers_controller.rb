@@ -24,6 +24,7 @@ class TeachersController < ApplicationController
 
   def show
     @review = Review.new
+    @reviews = @teacher.reviews
   end
 
   def edit
