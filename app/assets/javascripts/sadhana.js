@@ -4,7 +4,7 @@ $(() => {
 
 function setListeners() {
   //get individual teacher's lessons
-  $('.js-lessons').click(event => {
+  $('.js-lessons').click((event) => {
     event.preventDefault();
 
     let id = $('.js-lessons').attr('data-id');
@@ -23,7 +23,7 @@ function setListeners() {
   });
 
   //get next teacher lesson
-  $('.js-next').click(event => {
+  $('.js-next').click((event) => {
     event.preventDefault();
 
     let nextLessonId = parseInt($('.js-next').attr('data-id')) + 1;
@@ -33,6 +33,13 @@ function setListeners() {
       $('#lessonDescription').text(lesson.description);
       $('#lessonLocation').text(lesson.location);
       $('#lessonTime').text(lesson.time);
+
+      let lessonTagsHTML = '';
+      for(let i = 0; i < lesson.tags.length; i++) {
+        lessonTagsHTML += `<div class="ui teal tag label"><a href="/tags/${lesson.tags[i].id}">${lesson.tags[i].name}</a></div>`
+        console.log(lessonTagsHTML);
+      }
+      $('#lessonTags').html(lessonTagsHTML);
     });
 
   });
