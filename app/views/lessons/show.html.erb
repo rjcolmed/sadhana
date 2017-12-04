@@ -1,4 +1,4 @@
-<h1 class="heading"><%= @lesson.title %></h2>
+<h1 class="heading" id="lessonTitle"><%= @lesson.title %></h2>
 <div class="ui piled justified text container segment">
     <div class="ui horizontal divider">
       <i class="user icon"></i>
@@ -10,17 +10,17 @@
       <i class="align justify icon"></i>
         What
     </div>
-    <p><%= @lesson.description %></p>
+    <p id="lessonDescription"><%= @lesson.description %></p>
     <div class="ui horizontal divider">
       <i class="building icon"></i>
         Where
     </div>
-      <p><%= @lesson.location %></p>
+      <p id="lessonLocation"><%= @lesson.location %></p>
     <div class="ui horizontal divider">
       <i class="calendar icon"></i>
         When
     </div>
-    <p><%= @lesson.when %></p>
+    <p id="lessonTime"><%= @lesson.when %></p>
      <div class="ui horizontal divider">
       <i class="tags icon"></i>
         Tags
@@ -64,7 +64,6 @@
             <a class="author"><%= comment.student.username %></a>
             <div class="text"><%= comment.body %></div>
           </div>
-          
         </div>
       <% end %>
     </ul>
@@ -73,9 +72,10 @@
   <% end %>
 </div>
 
- 
-
   <div>
     <%= link_to 'Edit Lesson', edit_teacher_lesson_path(@lesson.teacher, @lesson), class: "ui teal button" if is_lesson_owner? %>
+  </div>
+  <div>
+    <a href="#" class="js-next" data-id="<%= @lesson.id %>">Next Lesson</a>
   </div>
 <% end %>
