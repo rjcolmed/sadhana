@@ -68,6 +68,7 @@ function setListeners() {
         </div>
       </div>
     </div>`
+    
       $('.ui.comments').append(teacherReviewHTML);
     });
   }); 
