@@ -17,6 +17,16 @@
         </div>
         <div id="lessonInfo"></div>
       <% end %>
+      <% if is_logged_in? && is_student? %>
+        <div class="ui form">
+          <%= form_for @review do |f| %>
+          <div class="field">
+            <%= f.text_area :body, rows: "5", class: "ui field"%>
+          </div>
+            <%= f.submit 'Review', class: "ui fluid teal button" %>
+          <% end %>
+        <div>
+      <% end %>
 
       
   </div>
