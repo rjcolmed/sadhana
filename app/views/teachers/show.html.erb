@@ -10,13 +10,32 @@
       <%= @teacher.bio %>
     </p>
       <% if is_logged_in? && owns_show_page? %>
-        <div class="three ui fluid buttons">
-          <%= link_to 'New Lesson', new_teacher_lesson_path(@teacher), class: 'ui big green button' %>
-          <%= link_to 'View Your Lessons', teacher_lessons_path(@teacher), class: 'ui big blue button' %>
-          <%= link_to 'Edit Your Info', edit_teacher_path(@teacher), class: 'ui big button' %>
+        <div class="four ui buttons">
+          <%= link_to 'New Lesson', new_teacher_lesson_path(@teacher), class: 'ui button' %>
+          <%= link_to 'View Your Lessons', teacher_lessons_path(@teacher), class: 'ui button js-lessons', data: { id: @teacher.id } %>
+          <%= link_to 'Edit Your Info', edit_teacher_path(@teacher), class: 'ui button' %>
+          <%= link_to 'See Student Reviews', reviews_path , class: 'ui button js-reviews', data: { id: @teacher.id } %>
         </div>
       <% end %>
+      <% if is_logged_in? && is_student? %>
+        <div class="ui form">
+          <%= form_for @review, html: { id: 'reviewForm' } do |f| %>
+          <div class="field">
+            <%= f.text_area :body, rows: "5", class: "ui field"%>
+            <%= f.hidden_field :teacher_id, value: @teacher.id %>
+            <%= f.hidden_field :student_id, value: @current_user.id %>
+          </div>
+            <%= f.submit 'Review', class: "ui fluid teal button" %>
+          <% end %>
+        <div>
+      <% end %>
+      <div class="ui comments">
+        <%# Student reviews rendered here via AJAX %>
+      </div>
   </div>
+
+
+
 
 
 

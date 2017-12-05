@@ -9,6 +9,11 @@ class LessonsController < ApplicationController
     else
       @lessons = Lesson.all
     end
+
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @lessons }
+    end
   end
 
   def new
@@ -28,6 +33,11 @@ class LessonsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @lesson.comments
+
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @lesson }
+    end
   end
 
   def edit

@@ -51,6 +51,7 @@ Rails.application.routes.draw do
 
   resources :teachers do
     resources :lessons
+    resources :reviews, only: %i[index]
   end
 
   resources :students do
@@ -70,6 +71,8 @@ Rails.application.routes.draw do
   resources :tags, only: %i[index new show create]
 
   resources :users, only: %i[new show create]
+
+  resources :reviews, only: %i[new show create]
 end
 
 

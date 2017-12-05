@@ -1,31 +1,33 @@
-<h1 class="heading"><%= @lesson.title %></h2>
+<h1 class="heading" id="lessonTitle"><%= @lesson.title %></h2>
 <div class="ui piled justified text container segment">
     <div class="ui horizontal divider">
       <i class="user icon"></i>
         Who
     </div>
-    <img class="ui avatar image" src=<%= @lesson.teacher.image %>>
-    <%= link_to @lesson.teacher.full_name, teacher_path(@lesson.teacher)  %>
+   <img id="lessonTeacherImage" class="ui avatar image" src=<%= @lesson.teacher.image %>>
+    <span id="lessonTeacherName"><%= link_to @lesson.teacher.full_name, teacher_path(@lesson.teacher)  %></span>
      <div class="ui horizontal divider">
       <i class="align justify icon"></i>
         What
     </div>
-    <p><%= @lesson.description %></p>
+    <p id="lessonDescription"><%= @lesson.description %></p>
     <div class="ui horizontal divider">
       <i class="building icon"></i>
         Where
     </div>
-      <p><%= @lesson.location %></p>
+      <p id="lessonLocation"><%= @lesson.location %></p>
     <div class="ui horizontal divider">
       <i class="calendar icon"></i>
         When
     </div>
-    <p><%= @lesson.when %></p>
+    <p id="lessonTime"><%= @lesson.when %></p>
      <div class="ui horizontal divider">
       <i class="tags icon"></i>
         Tags
     </div>
-    <%= render partial: 'tags/tag', collection: @lesson.tags %>
+    <div id="lessonTags">
+      <%= render partial: 'tags/tag', collection: @lesson.tags %>
+    </div>
   <div>
 
   <% if is_logged_in? %>
@@ -45,37 +47,34 @@
         <% end %>
       <div>
     <% else %>
-        <%= link_to 'Drop Lesson', lesson_drop_path(@lesson), method: :delete if is_enrolled? %>
+        <%= link_to 'Drop Lesson', lesson_drop_path(@lesson), method: :delete, class: "ui bottom attached red button" if is_enrolled? %>
     <% end %>
   <% end %>
-</div>
 
-<% if is_lesson_owner? %>
-<div class="ui comments">
-  <h3 class="ui dividing header">Comments</h3>
-   <% if @comments %>
-    <ul>
-      <% @comments.each do |comment| %>
-        <div class="comment">
-          <a class="avatar">
-            <img src="<%= comment.student.image %>">
-          </a>
-          <div class="content">
-            <a class="author"><%= comment.student.username %></a>
-            <div class="text"><%= comment.body %></div>
-          </div>
-          
-        </div>
+  <% if is_lesson_owner? %>
+    <div class="ui comments">
+      <% if @comments %>
+      <div class="ui horizontal divider">Comments</div>
+        <ul>
+          <% @comments.each do |comment| %>
+            <div class="comment">
+              <a class="avatar">
+                <img src="<%= comment.student.image %>">
+              </a>
+              <div class="content">
+                <a class="author"><%= comment.student.username %></a>
+                <div class="text"><%= comment.body %></div>
+              </div>
+            </div>
+          <% end %>
+        </ul>
+      <% else %>
+          <p>You don't have any messages yet.</p>
       <% end %>
-    </ul>
-    <% else %>
-      <p>You don't have any messages yet.</p>
+    </div>
+
+      <%= link_to 'Edit Lesson', edit_teacher_lesson_path(@lesson.teacher, @lesson), class: "ui bottom attached button" %>
   <% end %>
+      <a class="ui bottom attached teal button js-next" href="#" data-id="<%= @lesson.id %>">Next Lesson</a>
+
 </div>
-
- 
-
-  <div>
-    <%= link_to 'Edit Lesson', edit_teacher_lesson_path(@lesson.teacher, @lesson), class: "ui teal button" if is_lesson_owner? %>
-  </div>
-<% end %>

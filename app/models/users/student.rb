@@ -21,4 +21,6 @@ class Student < User
   has_many :enrollments
   has_many :lessons, through: :enrollments
   has_many :teachers, through: :lessons
+  has_many :comments
+  has_many :reviews
 end
