@@ -1,6 +1,14 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: %i[show edit update]
 
+  def index
+    if params[:lesson_id]
+    @lesson = Lesson.find_by(id: params[:lesson_id])
+    
+    @students = @lesson.students
+    end
+  end
+
   def new
     @student = Student.new
   end
