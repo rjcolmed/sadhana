@@ -96,3 +96,8 @@ div.ui.teal.tag.label {
   margin-bottom: 20px;
 }
 
+div.ui.raised.very.padded.segment {
+  margin: auto;
+  width: 500px;
+}
+
