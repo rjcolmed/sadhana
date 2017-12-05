@@ -14,7 +14,7 @@
   <div class="extra content">
     <a>
       <i class="users icon"></i>
-      <%= lesson.enrolled_students %> students going
+      <%= link_to "#{lesson.enrolled_students} students going", lesson_students_path(lesson) %>
     </a>
   </div>
   <%= link_to 'View Class', lesson_path(lesson), class: 'ui teal bottom attached button' %>
