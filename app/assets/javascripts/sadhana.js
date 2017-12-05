@@ -48,9 +48,6 @@ function setListeners() {
       $('#lessonTags').html(lessonTagsHTML);
       
       $(".js-next").attr('data-id', lesson.id);
-      
-  
-
     });
   });
 
