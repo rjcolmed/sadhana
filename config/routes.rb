@@ -62,6 +62,7 @@ Rails.application.routes.draw do
   resources :lessons, only: %i[show] do
     post '/enrollment', to: 'enrollment#create', as: 'enrollment'
     delete '/drop', to: 'enrollment#destroy', as: 'drop'
+    resources :students, only: %i[index]
   end
   
   get '/tags/most_popular', to: 'tags#index'
