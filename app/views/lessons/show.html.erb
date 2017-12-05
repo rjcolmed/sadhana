@@ -78,3 +78,14 @@
       <a class="ui bottom attached teal button js-next" href="#" data-id="<%= @lesson.id %>">Next Lesson</a>
 
 </div>
+
+<!-- Handlebars Template-->
+<script id='teacher-link-template' type='text/x-handlebars-template'>
+  <a href=`/teachers/{{teacher.id}}`>{{teacherName}}</a>
+</script>
+
+<script id='tags-template' type='text/x-handlebars-template'>
+  {{#each tags}}
+    <div class="ui teal tag label"><a href='/tags/{{id}}'>{{name}}</a></div>
+  {{/each}}
+</script>
