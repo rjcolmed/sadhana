@@ -37,7 +37,17 @@ Lesson.error = (err) => {
 }
 
 Lesson.gotLessons = (json) => {
-  console.log(json);
+  let lessons = json.map(obj => {
+    return new Lesson(obj);
+  });
+
+  //see if you can get this to render with Handlebars' {{each}}
+  let teacherLessonsHTML = "";
+  lessons.forEach((lesson) => {
+    teacherLessonsHTML += Lesson.teacherLessonsTemplate(lesson);
+  });
+
+  $('.ui.comments').html(teacherLessonsHTML);
 } 
 
 Lesson.nextButtonClickListener = (event) => {
