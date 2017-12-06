@@ -16,34 +16,29 @@
           <%= link_to 'Edit Your Info', edit_teacher_path(@teacher), class: 'ui button' %>
           <%= link_to 'See Student Reviews', reviews_path , class: 'ui button js-reviews', data: { id: @teacher.id } %>
         </div>
+        <div class="ui comments">
+        </div>
       <% end %>
       <% if is_logged_in? && is_student? %>
-       <div class="ui comments">
-        <% if is_student? && is_logged_in? %>
-        <h2 class="ui left aligned header">
-        Reviews
-        </h2>
-          <% if @reviews %>
-            <%=  render partial: '/reviews/review', collection:  @reviews  %>
-            <% else %>
-              <div> No reviews yet!</div>
-          <% end %>
-        <% end %>
+      <%= link_to 'See Student Reviews', reviews_path , class: 'ui fluid button js-reviews', data: { id: @teacher.id } %>
+      <div class="ui comments">
       </div>
-      <h3 class="ui left aligned header">Add a review!</h3>
-        <div class="ui form">
-          <%= form_for @review, html: { id: 'reviewForm' } do |f| %>
-          <div class="field">
-            <%= f.text_area :body, rows: "5", class: "ui field"%>
-            <%= f.hidden_field :teacher_id, value: @teacher.id %>
-            <%= f.hidden_field :student_id, value: @current_user.id %>
-          </div>
-            <%= f.submit 'Review', class: "ui fluid teal button" %>
-          <% end %>
-        <div>
+        <h3 class="ui left aligned header">Add a review!</h3>
+          <div class="ui form">
+            <%= form_for @review, html: { id: 'reviewForm' } do |f| %>
+            <div class="field">
+              <%= f.text_area :body, rows: "5", class: "ui field"%>
+              <%= f.hidden_field :teacher_id, value: @teacher.id %>
+              <%= f.hidden_field :student_id, value: @current_user.id %>
+            </div>
+              <%= f.submit 'Review', class: "ui fluid teal button" %>
+            <% end %>
+          <div>
       <% end %>
      
   </div>
+
+<!-- Handlebars Templates -->
 
 <script id='teacher-lessons-template' type='text/x-handlebars-template'>
     <div class="item">
