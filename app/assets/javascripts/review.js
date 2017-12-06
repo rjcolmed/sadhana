@@ -9,7 +9,6 @@ class Review {
   authorName() {
     return `${this.author.first_name} ${this.author.last_name}`
   }
-
 }
 
 Review.success = (json) => {
@@ -19,6 +18,9 @@ Review.success = (json) => {
   let reviewHTML = Review.reviewTemplate(review);
 
   $('.ui.comments').append(reviewHTML);
+  //re-enable the submit button
+  $('input').prop('disabled', false);
+  $('textarea').val('');
 }
 
 Review.getSuccess = (json) => {
