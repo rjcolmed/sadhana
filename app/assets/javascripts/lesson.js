@@ -15,9 +15,7 @@ class Lesson {
  }
  
  Lesson.success = (json) => {
-   //this is where I should replace pieces of the page. need to preserve rails's stuff when I dynamically render stuff
    let lesson = new Lesson(json);
-  //  let lessonHTML = lesson.renderHTML(); //expand on this to render the pieces of html you need
  
    $('#lessonTitle').text(lesson.title);
    $('#lessonDescription').text(lesson.description);
@@ -34,32 +32,49 @@ class Lesson {
    $(".js-next").attr('data-id', lesson.id);
  }
  
- Lesson.error = (err) => {
-   console.log(err);
- }
- 
- Lesson.nextButtonClickListener = (event) => {
+  Lesson.error = (err) => {
+    console.log(err);
+  }
+
+  Lesson.nextButtonClickListener = (event) => {
     event.preventDefault();
+    Lesson.teacherLinkTemplate = Handlebars.compile(Lesson.teacherLinkSource);
+    Lesson.tagsTemplate = Handlebars.compile(Lesson.tagsSource);
     let nextLessonId = parseInt($('.js-next').attr('data-id')) + 1;
-   
+    
     $.get(`/lessons/${nextLessonId}.json`)
       .done(Lesson.success)
       .fail(Lesson.error);
+  }
+
+  Lesson.bindNextButtonClickListener = () => {
+    console.log('been bound next button');
+    $('.js-next').click(Lesson.nextButtonClickListener);
+  }
+
+  Lesson.viewLessonsClickListener = (event) => {
+    event.preventDefault();
+    
+  }
+
+  Lesson.bindViewLessonsClickListener = () => {
+    $('.js-lessons').click(Lesson.viewLessonsClickListener);
+  }
+
+
+
+  Lesson.ready = () => {
+
+    Lesson.teacherLinkSource = $('#teacher-link-template').html();
+    Lesson.tagsSource = $('#tags-template').html();
+    
+
+    Lesson.bindNextButtonClickListener();
+    Lesson.bindViewLessonsClickListener();
+
  }
  
- Lesson.bindNextButtonClickListener = () => {
-   $('.js-next').click(Lesson.nextButtonClickListener);
- }
- 
- Lesson.ready = () => {
-   Lesson.teacherLinkSource = $('#teacher-link-template').html();
-   Lesson.teacherLinkTemplate = Handlebars.compile(Lesson.teacherLinkSource);
-   Lesson.tagsSource = $('#tags-template').html();
-   Lesson.tagsTemplate = Handlebars.compile(Lesson.tagsSource);
-   Lesson.bindNextButtonClickListener();
- }
- 
- $(() => {
-   Lesson.ready();
- });
+$(() => {
+  Lesson.ready();
+});
 
