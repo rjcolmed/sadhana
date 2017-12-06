@@ -14,5 +14,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require handlebars-v4.0.11
+//= require moment
 //= require turbolinks
 //= require_tree .
