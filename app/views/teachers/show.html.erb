@@ -30,7 +30,9 @@
         <div>
       <% end %>
       <div class="ui comments">
-        <%# Student reviews and teacher's lessons rendered here via AJAX %>
+        <% if is_student? && is_logged_in? %>
+          <%=  render partial: '/reviews/review', collection:  @reviews  %>
+        <% end %>
       </div>
   </div>
 
@@ -46,6 +48,7 @@
 </script>
 
 <script id='review-template' type='text/x-handlebars-template'>
+  
   <div class="comment">
       <a class="avatar">
         <img src="{{author.image}}">
@@ -60,6 +63,7 @@
         </div>
       </div>
     </div>
+   
 </script>
 
 
