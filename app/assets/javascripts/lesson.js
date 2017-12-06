@@ -12,6 +12,10 @@ class Lesson {
    teacherName() {
      return `${this.teacher.first_name} ${this.teacher.last_name}`
    }
+
+   formatTime() {
+    return moment(this.time).format('MMMM DD YYYY [at] h:mm a');
+   }
  }
  
 Lesson.success = (json) => {
