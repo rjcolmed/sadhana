@@ -1,14 +1,16 @@
-<div class="comment">
-  <a class="avatar">
-    <img src="<%= review.student.image %>">
-  </a>
-  <div class="content">
-    <a class="author"><%= review.student.full_name %></a>
-    <div class="metadata">
-      <span class="date"><%= review.when %></span>
-    </div>
-    <div class="text">
-      <%= review.body %>
+<% if review.student %>
+  <div class="comment">
+    <a class="avatar">
+      <img src="<%= review.student.image %>">
+    </a>
+    <div class="content">
+      <a class="author"><%= review.student.full_name %></a>
+      <div class="metadata">
+        <span class="date"><%= review.when %></span>
+      </div>
+      <div class="text">
+        <%= review.body %>
+      </div>
     </div>
   </div>
-</div>
+<% end %>
