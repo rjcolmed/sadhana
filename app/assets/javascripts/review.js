@@ -21,6 +21,25 @@ Review.success = (json) => {
   $('.ui.comments').append(reviewHTML);
 }
 
+Review.getSuccess = (json) => {
+  let reviews = json.map(obj => {
+    return new Review(obj);
+  });
+
+  Review.reviewTemplate = Handlebars.compile(Review.reviewTemplateSource);
+
+  let reviewsHTML = '';
+  reviews.forEach(review => {
+    reviewsHTML += Review.reviewTemplate(review);
+  });
+
+  $('.ui.comments').html(reviewsHTML);
+}
+
+Review.error = (err) => {
+  console.log(err);
+}
+
 Review.submitListener = (event) => {
   event.preventDefault();
   let $form = $('#reviewForm');
@@ -34,17 +53,34 @@ Review.submitListener = (event) => {
     method: "POST"
   })
   .done(Review.success)
-  .fail();
+  .fail(Review.err);
 }
 
 Review.bindSubmitListener = () => {
   $('#reviewForm').submit(Review.submitListener);
 }
 
+Review.reviewsClickListener = (event) => {
+  event.preventDefault();
+
+  let teacherId = $('.js-reviews').attr('data-id');
+
+  $.get(`/teachers/${teacherId}/reviews.json`)
+    .done(Review.getSuccess)
+    .fail(Review.err);
+}
+
+Review.bindReviewsClickListener = () => {
+  $('.js-reviews').click(Review.reviewsClickListener);
+}
+
 Review.ready = () => {
   Review.reviewTemplateSource = $('#review-template').html();
   Review.bindSubmitListener();
+  Review.bindReviewsClickListener();
 }
+
+
 
 $(() => {
   Review.ready();
