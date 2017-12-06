@@ -14,65 +14,73 @@ class Lesson {
    }
  }
  
- Lesson.success = (json) => {
-   let lesson = new Lesson(json);
+Lesson.success = (json) => {
+  let lesson = new Lesson(json);
+
+  $('#lessonTitle').text(lesson.title);
+  $('#lessonDescription').text(lesson.description);
+  $('#lessonLocation').text(lesson.location);
+  $('#lessonTime').text(lesson.time);
+  $('#lessonTeacherImage').attr('src', lesson.teacher.image);
+
+  let teacherLinkHTML = Lesson.teacherLinkTemplate(lesson);
+  $('#lessonTeacherName').html(teacherLinkHTML);
+
+  let tagsHTML = Lesson.tagsTemplate(lesson);
+  $('#lessonTags').html(tagsHTML);
+
+  $(".js-next").attr('data-id', lesson.id);
+}
  
-   $('#lessonTitle').text(lesson.title);
-   $('#lessonDescription').text(lesson.description);
-   $('#lessonLocation').text(lesson.location);
-   $('#lessonTime').text(lesson.time);
-   $('#lessonTeacherImage').attr('src', lesson.teacher.image);
+Lesson.error = (err) => {
+  console.log(err);
+}
 
-   let teacherLinkHTML = Lesson.teacherLinkTemplate(lesson);
-   $('#lessonTeacherName').html(teacherLinkHTML);
+Lesson.gotLessons = (json) => {
+  console.log(json);
+} 
 
-   let tagsHTML = Lesson.tagsTemplate(lesson);
-   $('#lessonTags').html(tagsHTML);
+Lesson.nextButtonClickListener = (event) => {
+  event.preventDefault();
 
-   $(".js-next").attr('data-id', lesson.id);
- }
- 
-  Lesson.error = (err) => {
-    console.log(err);
-  }
+  Lesson.teacherLinkTemplate = Handlebars.compile(Lesson.teacherLinkSource);
+  Lesson.tagsTemplate = Handlebars.compile(Lesson.tagsSource);
 
-  Lesson.nextButtonClickListener = (event) => {
-    event.preventDefault();
-    Lesson.teacherLinkTemplate = Handlebars.compile(Lesson.teacherLinkSource);
-    Lesson.tagsTemplate = Handlebars.compile(Lesson.tagsSource);
-    let nextLessonId = parseInt($('.js-next').attr('data-id')) + 1;
-    
-    $.get(`/lessons/${nextLessonId}.json`)
-      .done(Lesson.success)
-      .fail(Lesson.error);
-  }
+  let nextLessonId = parseInt($('.js-next').attr('data-id')) + 1;
+  
+  $.get(`/lessons/${nextLessonId}.json`)
+    .done(Lesson.success)
+    .fail(Lesson.error);
+}
 
-  Lesson.bindNextButtonClickListener = () => {
-    console.log('been bound next button');
-    $('.js-next').click(Lesson.nextButtonClickListener);
-  }
+Lesson.bindNextButtonClickListener = () => {
+  $('.js-next').click(Lesson.nextButtonClickListener);
+}
 
-  Lesson.viewLessonsClickListener = (event) => {
-    event.preventDefault();
-    
-  }
+Lesson.viewLessonsClickListener = (event) => {
+  event.preventDefault();
 
-  Lesson.bindViewLessonsClickListener = () => {
-    $('.js-lessons').click(Lesson.viewLessonsClickListener);
-  }
+  Lesson.teacherLessonsTemplate = Handlebars.compile(Lesson.teacherLessonsSource);
+  let id = $('.js-lessons').attr('data-id');
 
+  $.get(`/teachers/${id}/lessons.json`)
+    .done(Lesson.gotLessons)
+    .fail(Lesson.error);
+}
 
+Lesson.bindViewLessonsClickListener = () => {
+  $('.js-lessons').click(Lesson.viewLessonsClickListener);
+}
 
-  Lesson.ready = () => {
+Lesson.ready = () => {
 
-    Lesson.teacherLinkSource = $('#teacher-link-template').html();
-    Lesson.tagsSource = $('#tags-template').html();
-    
+  Lesson.teacherLinkSource = $('#teacher-link-template').html();
+  Lesson.tagsSource = $('#tags-template').html();
+  Lesson.teacherLessonsSource = $('#teacher-lessons-template').html();
 
-    Lesson.bindNextButtonClickListener();
-    Lesson.bindViewLessonsClickListener();
-
- }
+  Lesson.bindNextButtonClickListener();
+  Lesson.bindViewLessonsClickListener();
+}
  
 $(() => {
   Lesson.ready();
