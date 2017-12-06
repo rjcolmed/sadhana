@@ -1,25 +1,9 @@
-$(() => {
-  setListeners();
-});
+// $(() => {
+//   setListeners();
+// });
 
 function setListeners() {
-  //get individual teacher's lessons
-  $('.js-lessons').click((event) => {
-    event.preventDefault();
 
-    let id = $('.js-lessons').attr('data-id');
-    let lessonsHTML = '<h3 class="ui dividing header">Your Lessons</h3><ul>'
-
-    $.get(`/teachers/${id}/lessons.json`, (lessons) => {
-      for(let i = 0; i < lessons.length; i++) {
-        lessonsHTML += `<div class="item"><div class="content"><i class="users icon"></i><a class="header" href="/lessons/${lessons[i].id}">${lessons[i].title}</a><div class="description">When: ${lessons[i].time} at ${lessons[i].location}</div></div></div>`
-      }
-
-      lessonsHTML += '</ul>'
-      $('.ui.comments').html(lessonsHTML);
-    });
-  });
-  
   $('#reviewForm').submit(function(event) {
     event.preventDefault();
 
