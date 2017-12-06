@@ -9,6 +9,10 @@ class Review {
   authorName() {
     return `${this.author.first_name} ${this.author.last_name}`
   }
+
+  formatPostTime() {
+    return moment(this.postTime).format('MMMM DD[,] YYYY [at] h:mm a');
+  }
 }
 
 Review.success = (json) => {
