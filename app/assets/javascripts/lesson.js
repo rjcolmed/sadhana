@@ -14,7 +14,7 @@ class Lesson {
    }
 
    formatTime() {
-    return moment(this.time).format('MMMM DD YYYY [at] h:mm a');
+    return moment(this.time).format('MMMM DD[,] YYYY [at] h:mm a');
    }
  }
  
@@ -24,7 +24,7 @@ Lesson.success = (json) => {
   $('#lessonTitle').text(lesson.title);
   $('#lessonDescription').text(lesson.description);
   $('#lessonLocation').text(lesson.location);
-  $('#lessonTime').text(lesson.time);
+  $('#lessonTime').text(lesson.formatTime);
   $('#lessonTeacherImage').attr('src', lesson.teacher.image);
 
   let teacherLinkHTML = Lesson.teacherLinkTemplate(lesson);
