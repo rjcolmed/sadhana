@@ -5,7 +5,7 @@
     <div class="image show">
       <img src=<%= @teacher.image %>>
     </div>
-    <h2 class="header">About <%= @teacher.first_name %></h2>
+    <h2 class="ui center aligned header">About <%= @teacher.first_name %></h2>
     <p>
       <%= @teacher.bio %>
     </p>
@@ -18,6 +18,19 @@
         </div>
       <% end %>
       <% if is_logged_in? && is_student? %>
+       <div class="ui comments">
+        <% if is_student? && is_logged_in? %>
+        <h2 class="ui left aligned header">
+        Reviews
+        </h2>
+          <% if @reviews %>
+            <%=  render partial: '/reviews/review', collection:  @reviews  %>
+            <% else %>
+              <div> No reviews yet!</div>
+          <% end %>
+        <% end %>
+      </div>
+      <h3 class="ui left aligned header">Add a review!</h3>
         <div class="ui form">
           <%= form_for @review, html: { id: 'reviewForm' } do |f| %>
           <div class="field">
@@ -29,15 +42,10 @@
           <% end %>
         <div>
       <% end %>
-      <div class="ui comments">
-        <% if is_student? && is_logged_in? %>
-          <%=  render partial: '/reviews/review', collection:  @reviews  %>
-        <% end %>
-      </div>
+     
   </div>
 
 <script id='teacher-lessons-template' type='text/x-handlebars-template'>
-
     <div class="item">
       <div class="content">
         <i class="users icon"></i>
@@ -48,7 +56,6 @@
 </script>
 
 <script id='review-template' type='text/x-handlebars-template'>
-  
   <div class="comment">
       <a class="avatar">
         <img src="{{author.image}}">
@@ -63,7 +70,6 @@
         </div>
       </div>
     </div>
-   
 </script>
 
 
