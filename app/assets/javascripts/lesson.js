@@ -34,6 +34,7 @@ Lesson.success = (json) => {
   $('#lessonTags').html(tagsHTML);
 
   $(".js-next").attr('data-id', lesson.id);
+  $(".new_comment").attr('action', `/lessons/${lesson.id}/enrollment`);
 }
  
 Lesson.error = (err) => {
@@ -87,13 +88,13 @@ Lesson.bindViewLessonsClickListener = () => {
 }
 
 Lesson.ready = () => {
+  Lesson.bindNextButtonClickListener();
+  Lesson.bindViewLessonsClickListener();
 
   Lesson.teacherLinkSource = $('#teacher-link-template').html();
   Lesson.tagsSource = $('#tags-template').html();
   Lesson.teacherLessonsSource = $('#teacher-lessons-template').html();
 
-  Lesson.bindNextButtonClickListener();
-  Lesson.bindViewLessonsClickListener();
 }
  
 $(() => {
