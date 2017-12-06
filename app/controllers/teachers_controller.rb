@@ -24,7 +24,8 @@ class TeachersController < ApplicationController
 
   def show
     @review = Review.new
-    @reviews = @teacher.reviews
+
+    @reviews = @teacher.reviews unless @teacher.reviews.empty?
   end
 
   def edit
