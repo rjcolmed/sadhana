@@ -45,6 +45,23 @@
     </div>
 </script>
 
+<script id='review-template' type='text/x-handlebars-template'>
+  <div class="comment">
+      <a class="avatar">
+        <img src="{{author.image}}">
+      </a>
+      <div class="content">
+        <a class="author">{{authorName}}</a>
+        <div class="metadata">
+          <span class="date">{{postTime}}</span>
+        </div>
+        <div class="text">
+          {{body}}
+        </div>
+      </div>
+    </div>
+</script>
+
 
 
 
