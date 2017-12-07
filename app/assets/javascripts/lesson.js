@@ -7,6 +7,7 @@ class Lesson {
      this.description = json.description;
      this.teacher = json.teacher;
      this.tags = json.tags;
+     this.comments = json.comments;
    }
 
    teacherName() {
@@ -32,6 +33,9 @@ Lesson.success = (json) => {
 
   let tagsHTML = Lesson.tagsTemplate(lesson);
   $('#lessonTags').html(tagsHTML);
+
+  let commentsHTML = Lesson.commentsTemplate(lesson);
+  $('.ui.comments').html(commentsHTML);
 
   $(".js-next").attr('data-id', lesson.id);
   $(".new_comment").attr('action', `/lessons/${lesson.id}/enrollment`);
@@ -60,6 +64,7 @@ Lesson.nextButtonClickListener = (event) => {
 
   Lesson.teacherLinkTemplate = Handlebars.compile(Lesson.teacherLinkSource);
   Lesson.tagsTemplate = Handlebars.compile(Lesson.tagsSource);
+  Lesson.commentsTemplate = Handlebars.compile(Lesson.commentsSource);
 
   let nextLessonId = parseInt($('.js-next').attr('data-id')) + 1;
   
@@ -94,6 +99,7 @@ Lesson.ready = () => {
   Lesson.teacherLinkSource = $('#teacher-link-template').html();
   Lesson.tagsSource = $('#tags-template').html();
   Lesson.teacherLessonsSource = $('#teacher-lessons-template').html();
+  Lesson.commentsSource = $('#comments-template').html();
 
 }
  
