@@ -1,7 +1,12 @@
 
 <h1 class="heading"><%= @teacher.full_name %></h1>
   <div class="ui justified text container"> 
-  
+    <% if is_logged_in? && owns_show_page? %>
+      <div class="two ui top attached buttons">
+        <%= link_to 'New Lesson', new_teacher_lesson_path(@teacher), class: 'ui button' %>
+        <%= link_to 'Edit Your Info', edit_teacher_path(@teacher), class: 'ui button' %>  
+      </div>
+    <% end %>
     <div class="image show">
       <img src=<%= @teacher.image %>>
     </div>
@@ -10,13 +15,11 @@
       <%= @teacher.bio %>
     </p>
       <% if is_logged_in? && owns_show_page? %>
-        <div class="four ui buttons">
-          <%= link_to 'New Lesson', new_teacher_lesson_path(@teacher), class: 'ui button' %>
+        <div class="two ui buttons">
           <%= link_to 'View Your Lessons', teacher_lessons_path(@teacher), class: 'ui button js-lessons', data: { id: @teacher.id } %>
-          <%= link_to 'Edit Your Info', edit_teacher_path(@teacher), class: 'ui button' %>
           <%= link_to 'See Student Reviews', reviews_path , class: 'ui button js-reviews', data: { id: @teacher.id } %>
         </div>
-        <div class="ui comments">
+        <div class="ui comments divided list">
         </div>
       <% end %>
       <% if is_logged_in? && is_student? %>
@@ -42,10 +45,10 @@
 
 <script id='teacher-lessons-template' type='text/x-handlebars-template'>
     <div class="item">
+      <i class="large book middle aligned icon"></i>
       <div class="content">
-        <i class="users icon"></i>
         <a class="header" href='/lessons/{{id}}'>{{title}}</a>
-        <div class="description">When: {{formatTime}} at {{location}}</div>
+        <div class="description"><strong>When:</strong> {{formatTime}} at {{location}}</div>
       </div>
     </div>
 </script>
