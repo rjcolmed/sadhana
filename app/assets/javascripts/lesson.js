@@ -50,7 +50,6 @@ Lesson.gotLessons = (json) => {
     return new Lesson(obj);
   });
 
-  //see if you can get this to render with Handlebars' {{each}}
   let teacherLessonsHTML = "";
   lessons.forEach((lesson) => {
     teacherLessonsHTML += Lesson.teacherLessonsTemplate(lesson);
