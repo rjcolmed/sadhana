@@ -89,3 +89,17 @@
     <div class="ui teal tag label"><a href='/tags/{{id}}'>{{name}}</a></div>
   {{/each}}
 </script>
+
+<script id='comments-template' type='text/x-handlebars-template'>
+  {{#each comments}}
+  <div class="comment">
+    <a class="avatar">
+      <img src="{{student.image}}">
+    </a>
+    <div class="content">
+      <a class="author">{{student.username}}</a>
+      <div class="text">{{body}}</div>
+    </div>
+  </div>
+  {{/each}}
+</script>
