@@ -86,6 +86,3 @@ Review.ready = () => {
   Review.bindReviewsClickListener();
 }
 
-$(() => {
-  Review.ready();
-});

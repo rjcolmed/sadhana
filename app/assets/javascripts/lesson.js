@@ -75,6 +75,7 @@ Lesson.nextButtonClickListener = (event) => {
 
 Lesson.bindNextButtonClickListener = () => {
   $('.js-next').click(Lesson.nextButtonClickListener);
+  console.log('next lesson listener bound');
 }
 
 Lesson.viewLessonsClickListener = (event) => {
@@ -90,11 +91,12 @@ Lesson.viewLessonsClickListener = (event) => {
 
 Lesson.bindViewLessonsClickListener = () => {
   $('.js-lessons').click(Lesson.viewLessonsClickListener);
+  console.log('listener bound');
 }
 
 Lesson.ready = () => {
-  Lesson.bindNextButtonClickListener();
   Lesson.bindViewLessonsClickListener();
+  Lesson.bindNextButtonClickListener();
 
   Lesson.teacherLinkSource = $('#teacher-link-template').html();
   Lesson.tagsSource = $('#tags-template').html();
@@ -102,8 +104,3 @@ Lesson.ready = () => {
   Lesson.commentsSource = $('#comments-template').html();
 
 }
- 
-$(() => {
-  Lesson.ready();
-});
-
