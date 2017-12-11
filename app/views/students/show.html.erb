@@ -2,17 +2,17 @@
   <div class="ui justified text container"> 
   
     <div class="image show">
+      <% if owns_show_page? %>
+        <%= link_to 'Edit Your Info', edit_student_path(@student), class: 'ui big fluid top attached button' %>
+      <% end %>
       <img src=<%= @student.image %>>
     </div>
     <h2 class="header">About <%= @student.first_name %></h2>
     <p>
       <%= @student.bio %>
     </p>
-      <% if owns_show_page? %>
-        <div class="two ui fluid buttons">
-          <%= link_to 'Edit Your Info', edit_student_path(@student), class: 'ui big green button' %>
-          <%= link_to 'View Your Lessons', student_lessons_path(@student), class: 'ui big button' %>
-        </div>
-      <% end %>
+    <% if owns_show_page? %>
+      <%= link_to 'View Your Lessons', student_lessons_path(@student), class: 'ui big fluid teal bottom attached button' %>
+    <% end %>
   </div>
 
