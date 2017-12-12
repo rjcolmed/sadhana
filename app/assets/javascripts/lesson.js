@@ -37,6 +37,9 @@ Lesson.success = (json) => {
   let commentsHTML = Lesson.commentsTemplate(lesson);
   $('.ui.comments').html(commentsHTML);
 
+  let dropLessonLinkHTML = Lesson.dropLessonLinkTemplate(lesson);
+  $('#dropLessonLink').html(dropLessonLinkHTML);
+
   $(".js-next").attr('data-id', lesson.id);
   $(".new_comment").attr('action', `/lessons/${lesson.id}/enrollment`);
 }
@@ -64,6 +67,7 @@ Lesson.nextButtonClickListener = (event) => {
   Lesson.teacherLinkTemplate = Handlebars.compile(Lesson.teacherLinkSource);
   Lesson.tagsTemplate = Handlebars.compile(Lesson.tagsSource);
   Lesson.commentsTemplate = Handlebars.compile(Lesson.commentsSource);
+  Lesson.dropLessonLinkTemplate = Handlebars.compile(Lesson.dropLessonLinkSource);
 
   let nextLessonId = parseInt($('.js-next').attr('data-id')) + 1;
   
@@ -101,5 +105,6 @@ Lesson.ready = () => {
   Lesson.tagsSource = $('#tags-template').html();
   Lesson.teacherLessonsSource = $('#teacher-lessons-template').html();
   Lesson.commentsSource = $('#comments-template').html();
+  Lesson.dropLessonLinkSource = $('#drop-lesson-link-template').html();
 
 }
