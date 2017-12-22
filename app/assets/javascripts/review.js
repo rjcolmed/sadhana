@@ -15,7 +15,7 @@ class Review {
   }
 }
 
-Review.success = (json) => {
+Review.postSuccess = (json) => {
   const review = new Review(json);
   Review.reviewTemplate = Handlebars.compile(Review.reviewTemplateSource);
   
@@ -58,7 +58,7 @@ Review.submitListener = function(event) {
     dataType: "json",
     method: "POST"
   })
-  .done(Review.success)
+  .done(Review.postSuccess)
   .fail(Review.err);
 }
 
