@@ -1,23 +1,23 @@
 class Lesson {
   constructor(json) {
-     this.id = json.id;
-     this.title = json.title;
-     this.location = json.location;
-     this.time = json.time;
-     this.description = json.description;
-     this.teacher = json.teacher;
-     this.tags = json.tags;
-     this.comments = json.comments;
-   }
+    this.id = json.id;
+    this.title = json.title;
+    this.location = json.location;
+    this.time = json.time;
+    this.description = json.description;
+    this.teacher = json.teacher;
+    this.tags = json.tags;
+    this.comments = json.comments;
+  }
 
-   teacherName() {
-     return `${this.teacher.first_name} ${this.teacher.last_name}`
-   }
+  teacherName() {
+    return `${this.teacher.first_name} ${this.teacher.last_name}`
+  }
 
-   formatTime() {
-    return moment(this.time).format('MMMM DD[,] YYYY [at] h:mm a');
-   }
- }
+  formatTime() {
+  return moment(this.time).format('MMMM DD[,] YYYY [at] h:mm a');
+  }
+}
  
 Lesson.success = (json) => {
   let lesson = new Lesson(json);
@@ -48,17 +48,12 @@ Lesson.error = (err) => {
   console.log(err);
 }
 
-Lesson.gotLessons = (json) => {
-  let lessons = json.map(obj => {
-    return new Lesson(obj);
-  });
+Lesson.gotLessons = (lessons) => {
+  Lesson.teacherLessonsTemplate = Handlebars.compile(Lesson.teacherLessonsSource);
+  
+  const lessonsHTML = lessons.map(obj => Lesson.teacherLessonsTemplate(new Lesson(obj)));
 
-  let teacherLessonsHTML = "";
-  lessons.forEach((lesson) => {
-    teacherLessonsHTML += Lesson.teacherLessonsTemplate(lesson);
-  });
-
-  $('.ui.comments').html(teacherLessonsHTML);
+  $('.ui.comments').html(lessonsHTML);
 } 
 
 Lesson.nextButtonClickListener = (event) => {
@@ -81,23 +76,21 @@ Lesson.bindNextButtonClickListener = () => {
   console.log('next lesson listener bound');
 }
 
-Lesson.viewLessonsClickListener = (event) => {
-  event.preventDefault();
+Lesson.viewLessonsClickListener = function(event) {
 
-  Lesson.teacherLessonsTemplate = Handlebars.compile(Lesson.teacherLessonsSource);
-  let id = $('.js-lessons').attr('data-id');
-
-  $.get(`/teachers/${id}/lessons.json`)
+  event.preventDefault()
+  
+  $.get(`/teachers/${this.dataset.id}/lessons.json`)
     .done(Lesson.gotLessons)
     .fail(Lesson.error);
 }
 
-Lesson.bindViewLessonsClickListener = () => {
+Lesson.bindViewLessonsClickListener = function() {
   $('.js-lessons').click(Lesson.viewLessonsClickListener);
   console.log('listener bound');
 }
 
-Lesson.ready = () => {
+Lesson.ready = function() {
   Lesson.bindViewLessonsClickListener();
   Lesson.bindNextButtonClickListener();
 

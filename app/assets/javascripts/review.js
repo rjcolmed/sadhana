@@ -16,10 +16,10 @@ class Review {
 }
 
 Review.success = (json) => {
-  let review = new Review(json);
+  const review = new Review(json);
   Review.reviewTemplate = Handlebars.compile(Review.reviewTemplateSource);
   
-  let reviewHTML = Review.reviewTemplate(review);
+  const reviewHTML = Review.reviewTemplate(review);
 
   $('.ui.comments').append(reviewHTML);
   //re-enable the submit button
@@ -46,11 +46,11 @@ Review.error = (err) => {
   console.log(err);
 }
 
-Review.submitListener = (event) => {
+Review.submitListener = function(event) {
   event.preventDefault();
-  let $form = $('#reviewForm');
-  let params = $form.serialize();
-  let action = $form.attr("action");
+  const $form = $(this);
+  const params = $form.serialize();
+  const action = $form.attr("action");
 
   $.ajax({
     url: action,
@@ -66,12 +66,10 @@ Review.bindSubmitListener = () => {
   $('#reviewForm').submit(Review.submitListener);
 }
 
-Review.reviewsClickListener = (event) => {
+Review.reviewsClickListener = function(event) {
   event.preventDefault();
 
-  let teacherId = $('.js-reviews').attr('data-id');
-
-  $.get(`/teachers/${teacherId}/reviews.json`)
+  $.get(`/teachers/${this.dataset.id}/reviews.json`)
     .done(Review.getSuccess)
     .fail(Review.err);
 }
